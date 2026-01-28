@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;" lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Gallo Garage Bike">
+    <meta name="description" content="Gallo Garage Bike">
+	<link rel="icon" href="favicon.png" type="image/x-icon">
+    <title>Gallo Garage Bike</title>
+
+    <!-- <link rel="stylesheet" href="css/agency.css" media="screen"> -->
+    <link rel="stylesheet" href="css/main01.css" media="screen" class="pg_static-style">
+    <link rel="stylesheet" href="css/main02.css" media="screen">
+    <link rel="stylesheet" href="css/main03.css" media="screen">
+	<script class="pg_script" type="text/javascript" src="https://code.jquery.com/jquery-3.6.4.min.js" defer=""></script>
+    <script class="pg_script" type="text/javascript" src="js/main01.js" defer=""></script>
+    <link id="pg_theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+    <link id="pg_page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i">
+
+    <!-- font-awesome -->
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+	<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+	
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+
+  <!-- stripe -->
+  <script async src="https://js.stripe.com/v3/pricing-table.js"></script>
+
+    <script type="application/ld+json">
+        {
+                "@context": "http://schema.org",
+                "@type": "Organization",
+                "name": "",
+                "url": "/",
+                "logo": "images/logo-bg.svg"
+        }
+    </script>
+    <script type="application/javascript">
+        // When the user scrolls down 80px from the top of the document, resize the navbar's padding and the logo's font size
+        window.onscroll = function () { scrollFunction(); };
+
+        function scrollFunction() {
+			//ad ogni scroll sulla pagina
+            document.getElementById("navbarSupportedContent").className = "collapse navbar-collapse";
+            if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+                document.getElementById("carousel_e7d3").style.fontSize = "25px";
+				document.getElementById("pg_navbar").classList.remove("navbar_scroll_Top");
+				document.getElementById("pg_navbar").classList.add("navbar_scroll_NoTop");
+            } else {
+                document.getElementById("carousel_e7d3").style.fontSize = "35px";
+				document.getElementById("pg_navbar").classList.remove("navbar_scroll_NoTop");
+				document.getElementById("pg_navbar").classList.add("navbar_scroll_Top");
+            }
+        }
+
+        function myNavBar() {
+		  //sono in modalità smartphone e clicco sulle 3 linee per espandere il menu
+          var x = document.getElementById("navbarSupportedContent");
+          if (x.className === "collapse navbar-collapse") {
+			document.getElementById("navbarSupportedContent").classList.remove("collapse");
+          } else {
+			document.getElementById("navbarSupportedContent").classList.add("collapse");
+          }
+        }
+
+        function closeNavBar() {
+		//$( "packages" ).scrollTop( 300 );
+		//window.scrollBy(200,300);
+          var x = document.getElementById("navbarSupportedContent");
+            x.className = "collapse navbar-collapse";
+        }
+		
+		var shiftWindow = function() { scrollBy(0, -500) };
+		if (location.hash) shiftWindow();
+		window.addEventListener("hashchange", shiftWindow);
+		
+		//CAROSEL
+		/*
+		  Carosello vanilla JS: funzionalità
+		  - autoplay (opzionale)
+		  - pause on hover/focus
+		  - frecce prev/next
+		  - paginazione (dots)
+		  - swipe touch
+		  - keyboard arrow left/right
+		*/
+
+		document.addEventListener('DOMContentLoaded', function(){
+		  const carousel = document.getElementById('myCarousel');
+		  if (!carousel) return;
+
+		  const track = carousel.querySelector('.carousel-track');
+		  const slides = Array.from(track.children);
+		  const prevBtn = carousel.querySelector('.carousel-btn.prev');
+		  const nextBtn = carousel.querySelector('.carousel-btn.next');
+		  const dotsContainer = carousel.querySelector('.carousel-dots');
+
+		  let index = 0;
+		  let isAnimating = false;
+
+		  // Parametri
+		  const AUTOPLAY = true;           // true per autoplay
+		  const AUTOPLAY_DELAY = 3000;    // ms
+		  let autoplayTimer = null;
+
+		  // Crea i dot
+		  slides.forEach((_, i) => {
+			const btn = document.createElement('button');
+			btn.type = 'button';
+			btn.setAttribute('aria-pressed', i === 0 ? 'true' : 'false');
+			btn.dataset.index = i;
+			btn.addEventListener('click', () => goTo(i));
+			dotsContainer.appendChild(btn);
+		  });
+
+		  const dots = Array.from(dotsContainer.children);
+
+		  function updateUI(){
+			// translateX
+			track.style.transform = `translateX(${-index * 100}%)`;
+			// update dots aria
+			dots.forEach((d, i) => d.setAttribute('aria-pressed', i===index ? 'true' : 'false'));
+		  }
+
+		  function goTo(i){
+			if (isAnimating) return;
+			index = ((i % slides.length) + slides.length) % slides.length;
+			updateUI();
+			resetAutoplay();
+		  }
+
+		  function prev(){
+			goTo(index - 1);
+		  }
+
+		  function next(){
+			goTo(index + 1);
+		  }
+
+		  prevBtn.addEventListener('click', prev);
+		  nextBtn.addEventListener('click', next);
+
+		  // Keyboard
+		  carousel.addEventListener('keydown', e => {
+			if (e.key === 'ArrowLeft') prev();
+			if (e.key === 'ArrowRight') next();
+		  });
+
+		  // Make carousel focusable
+		  carousel.tabIndex = 0;
+
+		  // Autoplay controls
+		  function startAutoplay(){
+			if (!AUTOPLAY) return;
+			stopAutoplay();
+			autoplayTimer = setInterval(() => next(), AUTOPLAY_DELAY);
+		  }
+		  function stopAutoplay(){ if (autoplayTimer) { clearInterval(autoplayTimer); autoplayTimer = null; } }
+		  function resetAutoplay(){ stopAutoplay(); startAutoplay(); }
+
+		  // Pause on hover / focus
+		  carousel.addEventListener('mouseenter', stopAutoplay);
+		  carousel.addEventListener('mouseleave', startAutoplay);
+		  carousel.addEventListener('focusin', stopAutoplay);
+		  carousel.addEventListener('focusout', startAutoplay);
+
+		  // Touch / swipe support (basic)
+		  let startX = 0, currentX = 0, dragging = false;
+		  track.addEventListener('pointerdown', e => {
+			dragging = true;
+			startX = e.clientX;
+			track.style.transition = 'none';
+			e.target.setPointerCapture && e.target.setPointerCapture(e.pointerId);
+		  });
+		  track.addEventListener('pointermove', e => {
+			if (!dragging) return;
+			currentX = e.clientX;
+			const dx = currentX - startX;
+			// small drag effect: translate by offset
+			track.style.transform = `translateX(${ -index*100 + (dx / carousel.clientWidth) * 100 }%)`;
+		  });
+		  track.addEventListener('pointerup', e => {
+			if (!dragging) return;
+			dragging = false;
+			track.style.transition = '';
+			const dx = e.clientX - startX;
+			// threshold 1/8 width
+			if (dx > carousel.clientWidth / 8) prev();
+			else if (dx < -carousel.clientWidth / 8) next();
+			else updateUI();
+		  });
+		  track.addEventListener('pointercancel', () => { dragging = false; updateUI(); });
+
+		  // Resize: keep current slide visible
+		  window.addEventListener('resize', updateUI);
+
+		  // Initialize
+		  updateUI();
+		  startAutoplay();
+		});
+				
+    </script>
+	<style>		
+	
+		
+		:root {
+			--text-font: 'StackSansText', sans-serif;
+			--heading-font: 'StackSansText', sans-serif;
+			--heading-font: 'StackSansText', sans-serif;
+			--color-main-primary: #054651;
+			--color-text-primary: #081419;
+			--color-icons-primary: #005F73;
+			--color-bg-fill-primary: #0A9396;
+			--color-bg-surf-primary: #EFF8F5;
+			--color-border-primary: #B1C6C9;
+			--color-main-secondary: #E9D8A6;
+			--color-text-secondary: #9B2226;
+			--color-icons-secondary: #CA6702;
+			--color-bg-fill-secondary: #EF9C21;
+			--color-bg-surf-secondary: #F7F0DF;
+			--color-border-secondary: #C6C2B0;
+			--carousel-width: 800px;
+			--carousel-height: 450px;
+			--btn-size: 44px;
+		}
+
+  
+		@font-face {			
+			font-family: 'StackSansText';
+			font-style: normal;
+			font-weight: normal;
+			src: local('StackSansText'), url('fonts/StackSansText.ttf') format('ttf');
+		}
+		@font-face {			
+			font-family: 'Anton';
+			font-style: normal;
+			font-weight: normal;
+			src: local('Anton'), url('fonts/Anton.ttf') format('ttf');
+		}
+		@font-face {			
+			font-family: 'LatoHairlineItalic';
+			font-style: normal;
+			font-weight: normal;
+			src: local('LatoHairlineItalic'), url('fonts/LatoHairlineItalic.ttf') format('ttf');
+		}
+		@font-face {			
+			font-family: 'NCL Sebgorq';
+			font-style: normal;
+			font-weight: normal;
+			src: local('NCL Sebgorq'), url('fonts/NCLSebgorq.ttf') format('ttf');
+		}
+		@font-face {
+			font-family: 'NCL Sebgorq Demo';
+			font-style: normal;
+			font-weight: normal;
+			src: local('NCL Sebgorq Demo'), url('fonts/NCLSebgorq-Demo.woff') format('woff');
+		}
+
+		body {
+			font-family: 'StackSansText', sans-serif;	
+			color: var(--color-text-primary);
+		}
+		footer {
+			font-family: 'StackSansText', sans-serif !important;	
+			color: var(--color-text-primary);
+		}
+		.footer {
+			font-family: 'StackSansText', sans-serif !important;	
+			color: var(--color-text-primary);
+		}
+		
+		.navbar_scroll_Top {
+			background-color: transparent !important;
+		}
+		
+		.navbar_scroll_NoTop {
+			background-color: var(--color-bg-fill-primary) !important;
+		}
+		
+		.navbar_scroll_Top .img-logo-nav {
+			display: unset !important;
+		}
+		.navbar_scroll-Top .img-logo-nav-small {
+			display: none !important;
+		}
+		
+		.navbar_scroll_NoTop .img-logo-nav {
+			display: none !important;
+		}
+		.navbar_scroll_NoTop .img-logo-nav-small {
+			display: unset !important;
+		}
+		
+		.card {
+		  transition: 0.3s;
+		  width: 40%;
+		  border: 0px;
+		}
+
+		.card:hover {
+		}
+
+		.container {
+		  padding: 2px 16px;
+		}
+		
+		/* colori */
+		/*  -> primary */
+		.color-main-primary {
+			color: var(--color-main-primary) !important;
+		}
+		.color-bg-main-primary {
+			color: var(--color-main-primary) !important;
+		}
+		.color-text-primary {
+			color: var(--color-text-primary) !important;
+		}
+		.color-icons-primary {
+			color: var(--color-icons-primary) !important;
+		}
+		.color-bg-fill-primary {
+			color: var(--color-bg-fill-primary) !important;
+		}
+		.color-bg-surf-primary {
+			color: var(--color-bg-surf-primary) !important;
+		}
+		.color-border-primary {
+			color: var(--color-border-primary) !important;
+		}
+		/*  -> secondary */	
+		.color-bg-main-secondary {
+			color: var(--color-main-secondary) !important;
+		}
+		.color-main-secondary {
+			color: var(--color-main-secondary) !important;
+		}
+		.color-text-secondary {
+			color: var(--color-text-secondary) !important;
+		}
+		.color-icons-secondary {
+			color: var(--color-icons-secondary) !important;
+		}
+		.color-bg-fill-secondary {
+			color: var(--color-bg-fill-secondary) !important;
+		}                      
+		.color-bg-surf-secondary {
+			color: var(--color-bg-surf-secondary) !important;
+		}                      
+		.color-border-secondary {
+			color: var(--color-border-secondary) !important;
+		}
+		/* colori */
+		
+		.border-color-main-primary {
+			border-radius: 10px !important; 
+			border: 8px solid var(--color-border-primary) !important;
+		}
+		
+		.footer-end {
+			border: 8px solid var(--color-border-secondary) !important;
+		}
+		
+		.font-title {
+			font-family: 'Anton', sans-serif !important;	
+		}
+		
+		.font-other {
+			font-family: 'LatoHairlineItalic', sans-serif !important;	
+		}
+		
+		.font-hero-h1 {
+			font-family: 'NCLSebgorq', serif !important;	
+		}
+		
+		.pg_responsive-xs .navbar-collapse {
+			background-color: color-mix(in srgb, var(--color-border-primary) 40%, transparent)
+		}
+		
+		/*   calendar wrapper */	
+		  /* Wrapper: dimensione, bordo opzionale e scrollbar verticale (sempre visibile) */
+		  .calendar-wrapper{
+			width: 100%;            /* oppure una larghezza fissa, es. 800px */
+			max-width: 1200px;
+			height: 700px;          /* altezza visibile del calendario nella landing */
+			overflow-y: auto;       /* abilita lo scrollbar verticale */
+			overflow-x: hidden;     /* impedisce scrollbar orizzontale */
+			-webkit-overflow-scrolling: touch; /* smooth scrolling su iOS */
+			box-sizing: border-box;
+			border-radius: 6px;
+			
+			background: transparent;
+		  }
+
+		  /* Iframe: dimensioni 100% del wrapper */
+		  .calendar-iframe{
+			width: 100%;
+			height: 1420px; /* più grande del wrapper: il contenuto scorrerà nel wrapper */
+			border: 0;
+			display: block;
+			box-sizing: border-box;
+			background: transparent;
+		  }
+
+		  /* Forza scrollbar verticale sempre visibile (solo su desktop moderni) */
+		  .calendar-wrapper {
+			overflow-y: scroll;
+		  }
+		  
+		  .calendly-inline-widget {
+			  width: 100%;
+			  height: 100vh; /* oppure 80vh o qualunque altezza responsive */
+			  min-height: 700px; /* fallback sui desktop */
+			}
+		/*  carosel */
+
+		.carousel-main {
+			display:flex;
+			justify-content:center;
+			margin: 0 auto !important;
+		}
+		
+		/* Contenitore */
+		.carousel {
+		width: min(var(--carousel-width), 100%);
+		max-width: var(--carousel-width);
+		height: var(--carousel-height);
+		position: relative;
+		overflow: hidden;
+		border-radius: 8px;
+		box-shadow: 0 6px 20px rgba(0,0,0,.12);
+		background: #fff;
+		touch-action: pan-y;
+		}
+
+		/* Track che scorre */
+		.carousel-track {
+		display: flex;
+		height: 100%;
+		transition: transform 450ms cubic-bezier(.22,.9,.31,1);
+		will-change: transform;
+		}
+
+		/* Ogni slide */
+		.carousel-slide{
+		min-width: 100%;
+		height: 100%;
+		display:flex;
+		align-items:center;
+		justify-content:center;
+		user-select: none;
+		-webkit-user-drag: none;
+		}
+
+		.carousel-slide img{
+		max-width: 100%;
+		max-height: 100%;
+		object-fit: contain;
+		display:block;
+		pointer-events: none;
+		}
+
+		/* Frecce */
+		.carousel-btn{
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		width: var(--btn-size);
+		height: var(--btn-size);
+		border-radius: 50%;
+		border: none;
+		background: rgba(0,0,0,.45);
+		color: #fff;
+		font-size: 20px;
+		cursor:pointer;
+		display:flex;
+		align-items:center;
+		justify-content:center;
+		z-index: 10;
+		transition: background .15s;
+		}
+		.carousel-btn:hover{ background: rgba(0,0,0,.65); }
+		.carousel-btn:active{ transform: translateY(-50%) scale(.98); }
+		.carousel-btn.prev{ left: 12px; }
+		.carousel-btn.next{ right: 12px; }
+
+		/* Punti (pagination) */
+		.carousel-dots{
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+		bottom: 10px;
+		display:flex;
+		gap:8px;
+		z-index: 10;
+		}
+		.carousel-dots button{
+		width:10px;height:10px;border-radius:50%;border:none;background:rgba(0,0,0,.25);cursor:pointer;padding:0;
+		}
+		.carousel-dots button[aria-pressed="true"]{ background: rgba(0,0,0,.8); width:12px; height:12px; }
+
+		/* Hide controls on small screens if desired */
+		@media (max-width:420px){
+		.carousel-btn{ display: none; }
+		}
+
+		/*  footer */	
+			.footer {
+				list-style: none;
+				padding: 0;
+			}
+
+			.footer li {
+				display: flex;
+				align-items: center;
+				margin-bottom: 6px;
+			}
+
+			.footer li i {
+				width: 20px;
+				text-align: center;
+				margin-right: 4px;					
+				color: var(--color-text-primary);
+			}
+
+			.footer li a {
+				color: var(--color-text-primary);  /* inherit; usa il colore del testo circostante */
+				text-decoration: none;
+			}
+
+			.footer li a:hover {
+				text-decoration: underline;
+			}
+
+	</style>
+
+
+    <!--<link href="agency.css" rel="stylesheet">-->
+    <meta name="theme-color" content="#95ccc3">
+    <meta property="og:title" content="Home">
+    <meta property="og:type" content="website">
+    <link rel="canonical" href="/">
+
+</head>
+<body id="page-top" class="index pg_body pg_xl-mode" data-lang="en">
+    <div id="pg_navbar">
+
+
+        <nav id="nav-menu" class="navbar top navbar-expand-lg navbar-light navbar-custom navbar-fixed-top">  	<!-- navbar top navbar-expand-lg navbar-light navbar-custom navbar-fixed-top -->
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <img src="images/logo-bg.svg" class="img-logo-nav">
+					<img src="images/logo-chiaro-orizzontale-2x.png" class="img-logo-nav-small">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" onclick="myNavBar()">
+                    <span class="fa fa-bars fa-2x btn-color color-main-secondary"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto nav nav-pills">
+                        <li class="nav-item">
+                            <a class="page-scroll nav-link btn-nav custom-text-zoom-2" href="#scope" data-bs-toggle="collapse" aria-controls="navbarSupportedContent" onclick="closeNavBar()"> <b>M</b>anutenzione</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="page-scroll nav-link btn-nav custom-text-zoom-2" href="#packages" data-bs-toggle="collapse" aria-controls="navbarSupportedContent" onclick="closeNavBar()"> <b>S</b>ervizi</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="page-scroll nav-link btn-nav custom-text-zoom-2" href="#aboutus" data-bs-toggle="collapse" aria-controls="navbarSupportedContent" onclick="closeNavBar()"> <b>O</b>fficina</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="page-scroll nav-link btn-nav custom-text-zoom-2" href="#contactus" data-bs-toggle="collapse" aria-controls="navbarSupportedContent" onclick="closeNavBar()"> <b>P</b>renotazioni</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="page-scroll nav-link btn-nav custom-text-zoom-2" href="#footer" data-bs-toggle="collapse" aria-controls="navbarSupportedContent" onclick="closeNavBar()"> <b>C</b>ontatti</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    </header>
+    <section class="skrollable skrollable-between pg_align-center pg_clearfix pg_image pg_shading pg_section-1" src="" id="carousel_e7d3" data-image-width="1619" data-image-height="1080">
+        <!--<div style="background-image: linear-gradient(to top, #000, #fff); height:100px;"><span>&nbsp</span></div>-->
+        <div class="pg_clearfix pg_sheet pg_valign-middle pg_sheet-1">
+            <h1 class="pg_text pg_text-1 color-main-secondary" style="font-family:'NCL Sebgorq'; font-weight: 500; font-size: 140px;" data-animation-name="customAnimationIn" data-animation-duration="1250">Gallo Garage Bike</h1> 
+			<!-- <img class="pg_text pg_text-1"  data-animation-name="customAnimationIn" data-animation-duration="1250" src="images/logo-inline-chiaro@2x.png" class="img-logo-nav">-->
+            <p class="pg_large-text pg_text pg_text-variant pg_text-2 color-main-secondary" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="500">Riparazioni, manutenzione e preparazione gare</p>
+        </div>
+    </section>
+	
+    <section class="pg_align-center pg_clearfix pg_white pg_section-2" id="carousel_78eb">
+		<h1 style="padding-top: 40px; margin-top: -40px;"  id="scope"></h1>
+        <div class="pg_clearfix pg_sheet pg_valign-middle pg_sheet-1">
+            <h2 class="pg_text pg_text-1 color-main-primary font-title" data-animation-name="customAnimationIn" data-animation-duration="1750" data-animation-delay="0" >Manutenzione</h2>
+			<p class="pg_text pg_text-body-alt-color pg_text-2 color-text-primary" data-animation-name="customAnimationIn" data-animation-duration="1750" data-animation-delay="750"> Niente si butta, tutto si ripara! <br/>Non esiste guasto che ci fermi. Solo bici pronte a ripartire.</p>
+            <div class="pg_expanded-width pg_list pg_list-1">
+                <div class="pg_repeater pg_repeater-1">
+                    <div class="pg_align-center pg_container-style pg_custom-border pg_list-item pg_palette-2-base pg_repeater-item pg_shape-rectangle pg_list-item-1" data-animation-name="customAnimationIn" data-animation-duration="1750" data-animation-delay="500" style="border-radius: 10px">
+                        <div class="pg_container-layout pg_similar-container pg_container-layout-1">
+							<span class="pg_border-7 pg_border-palette-1-base pg_file-icon pg_icon pg_icon-rectangle pg_text-palette-2-base pg_white pg_icon-1" data-animation-name="customAnimationIn" data-animation-duration="1000" data-animation-delay="750" style="border-radius: 50%">
+								<i class="fa fa-bullseye fa-3x"></i>
+							</span>
+							<h5 class="pg_text pg_text-4 font-title"> Personalizzazione</h5>
+							<p class="pg_custom-item pg_text pg_text-3">Adattiamo ogni bicicletta alle esigenze specifiche del ciclista, scegliendo e regolando componenti, assetto e dettagli per ottenere comfort, prestazioni e stile su misura.</p>
+						</div>
+					</div>
+					<div class="pg_align-center pg_container-style pg_custom-border pg_list-item pg_palette-2-base pg_repeater-item pg_shape-rectangle pg_list-item-2" data-animation-name="customAnimationIn" data-animation-duration="1750" data-animation-delay="500" style="border-radius: 10px">
+						<div class="pg_container-layout pg_similar-container pg_container-layout-2">
+							<span class="pg_border-7 pg_border-palette-1-base pg_file-icon pg_icon pg_icon-rectangle pg_text-palette-2-base pg_white pg_icon-3" data-animation-name="customAnimationIn" data-animation-duration="1000" data-animation-delay="750" style="border-radius: 50%">
+								<i class="fa fa-wrench fa-3x"></i>
+							</span>
+							<h5 class="pg_text pg_text-4 font-title"> Riparazione</h5>
+							<p class="pg_custom-item pg_text pg_text-5">Riparazione bici di ogni genere, da una vecchia CityBike alle più moderne eBike</p>
+						</div>
+					</div>
+					<div class="pg_align-center pg_container-style pg_custom-border pg_list-item pg_palette-2-base pg_repeater-item pg_shape-rectangle pg_list-item-3" data-animation-name="customAnimationIn" data-animation-duration="1750" data-animation-delay="500" style="border-radius: 10px">
+						<div class="pg_container-layout pg_similar-container pg_container-layout-3">
+							<span class="pg_border-7 pg_border-palette-1-base pg_file-icon pg_icon pg_icon-rectangle pg_text-palette-2-base pg_white pg_icon-5" data-animation-name="customAnimationIn" data-animation-duration="1000" data-animation-delay="750" style="border-radius: 50%">
+								<i class="fa fa-truck fa-3x"></i>
+							</span>
+							<h5 class="pg_text pg_text-6 font-title"> Ritiro/Consegna</h5>
+							<p class="pg_custom-item pg_text pg_text-7">Pensiamo a tutto noi: ritiro e consegna a domicilio su appuntamento</p>
+						</div>
+					</div>
+					<div class="pg_align-center pg_container-style pg_custom-border pg_list-item pg_palette-2-base pg_repeater-item pg_shape-rectangle pg_list-item-3" data-animation-name="customAnimationIn" data-animation-duration="1750" data-animation-delay="500" style="border-radius: 10px">
+						<div class="pg_container-layout pg_similar-container pg_container-layout-3">
+							<span class="pg_border-7 pg_border-palette-1-base pg_file-icon pg_icon pg_icon-rectangle pg_text-palette-2-base pg_white pg_icon-5" data-animation-name="customAnimationIn" data-animation-duration="1000" data-animation-delay="750" style="border-radius: 50%">
+								<i class="fa fa-tint fa-3x"></i>
+							</span>
+							<h5 class="pg_text pg_text-6 font-title"> Lavaggio & Detailing</h5>
+							<p class="pg_custom-item pg_text pg_text-7">Lavaggio accurato e detailing per riportare la bici come nuova</p>
+						</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+	
+    <section class="pg_align-center pg_clearfix pg_section-7" style="bottom: 10px;">
+        <!-- carousel_d6ce -->
+        <h1 style="padding-top: 40px; margin-top: -40px;" id="packages"></h1>
+        <div class="wrapper">
+            <img class="pg_expanded-width pg_image pg_image-1" src="images/main03.png" data-image-width="1585" data-image-height="1080">
+            <h2 class="pg_text pg_text-body-alt-color pg_text-1 color-main-secondary font-title" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="250">Servizi</h2>
+            <p class="pg_text pg_text-body-alt-color pg_text-2 color-text-secondary" data-animation-name="customAnimationIn" data-animation-duration="1750" data-animation-delay="750"> Vendita, setting e consulenza per le vostre bici</p>
+            <div class="pg_list pg_list-1 card_pack">
+                <div>
+                    <!-- class="pg_repeater pg_repeater-1" -->
+                    <div class="pg_align-center pg_border-2 pg_border-palette-2-base pg_container-style pg_list-item pg_repeater-item pg_shape-rectangle pg_white pg_list-item-1 border-color-main-primary" data-animation-name="customanimationin" data-animation-duration="1750" data-animation-delay="250" >
+                        <div class="pg_container-layout pg_similar-container pg_valign-top pg_container-layout-1">
+
+
+                            <div style="grid-gap: 8px; -webkit-box-pack: center; -ms-flex-pack: center; display: -ms-grid; display: grid; grid-template-columns: repeat(auto-fit,minmax(312px,312px)); -webkit-justify-content: center; justify-content: center; width: 100%; text-align: left;">
+
+                                <!-- CARD >>> -->
+                                <!-- CARD - REGULAR -->
+                                <div class="card color-text-secondary" style="width: 250px; margin: 10px;" data-animation-name="slideIn" data-animation-direction="Left" data-animation-duration="1500" data-animation-delay="500">
+                                    <img src="images/VenditaAccessori.png" alt="Avatar" style="width:fit-content; height: 160px">
+                                    <div class="container">
+                                        <h4 class="font-title"><b>Vendita accessori</b></h4>
+
+                                        <div style="-webkit-box-align: center; -ms-flex-align: center; -webkit-align-items: center; align-items: center; display: flex;">
+                                            <span style="font-size: 13px; opacity: .5;">Offriamo una gamma completa di accessori e componenti per ogni bici.</span>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <!-- CARD - PROFESSIONAL -->
+                                <div class="card color-text-secondary" style="width: 250px; margin: 10px;" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="500">
+                                    <img src="images/AcquistiOnline.png" alt="Avatar" style="width:fit-content; height: 160px">
+                                    <div class="container">
+                                        <h4 class="font-title"><b>Acquisti online</b></h4>
+
+                                        <div style="-webkit-box-align: center; -ms-flex-align: center; -webkit-align-items: center; align-items: center; display: flex;">                                            
+                                            <span style="font-size: 13px; opacity: .5;">Supporto e consigli per scegliere la bicicletta o i componenti online</span>                                     
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <!-- CARD - PREMIUM -->
+                                <div class="card color-text-secondary" style="width: 250px; margin: 10px;" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="500">
+                                    <img src="images/SettingBici.png" alt="Avatar" style="width:fit-content; height: 160px">
+                                    <div class="container">
+                                        <h4 class="font-title"><b>Setting bici</b></h4>
+
+                                        <div style="-webkit-box-align: center; -ms-flex-align: center; -webkit-align-items: center; align-items: center; display: flex;">
+                                            <span style="font-size: 13px; opacity: .5;">Adattiamo assetto e regolazioni alla tua posizione in sella e al tuo stile di guida</span>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <!-- CARD - PREMIUM -->
+                                <div class="card color-text-secondary" style="width: 250px; margin: 10px;" data-animation-name="slideIn" data-animation-direction="Right" data-animation-duration="1500" data-animation-delay="500">
+                                    <img src="images/SettingComponenti.png" alt="Avatar" style="width:fit-content; height: 160px">
+                                    <div class="container">
+                                        <h4 class="font-title"><b>Setting componenti</b></h4>
+
+                                        <div style="-webkit-box-align: center; -ms-flex-align: center; -webkit-align-items: center; align-items: center; display: flex;">
+                                            <span style="font-size: 13px; opacity: .5;">Regolazione e messa a punto di tutti i componenti della bicicletta, dal ciclocompuer, alla mappatura delle eBike</span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <<< CARD -->
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div> <!-- div pg_list pg_list-1 card_pack -->
+        </div>  <!-- div wrapper -->
+        <script type="application/javascript">
+            loadPkgPrice();
+            function loadPkgPrice() {
+                let valueDisplays = document.querySelectorAll(".num");
+                let interval = 50;
+                valueDisplays.forEach((valueDisplay) => {
+                    valueDisplay.textContent = '000 €';
+                    let startValue = 0;
+                    let endValue = parseInt(valueDisplay.getAttribute("data-val"));
+                    let duration =Math.floor(interval / endValue);
+                    let counter = setInterval(function () {
+                    startValue += 1;
+                    valueDisplay.textContent = startValue + ' €';
+                    if (startValue >= endValue) {
+                        clearInterval(counter);
+                    }
+                    }, duration);
+                });
+            }
+        </script>
+
+
+    </section>
+    <section class="pg_align-center pg_clearfix pg_image pg_shading pg_section-9" id="carousel_2a16" data-image-width="1620" data-image-height="1080">
+        <div class="pg_clearfix pg_sheet pg_valign-middle pg_sheet-1">
+            <span class="pg_file-icon pg_icon pg_text-palette-2-base pg_icon-1" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="500">
+                <i class="fa fa-instagram  fa-5x color-icons-secondary"></i>
+            </span>
+
+            <h2 class="pg_text pg_text-1 color-main-secondary" data-animation-name="slideIn" data-animation-duration="2000" data-animation-direction="Left"> Seguici su instagram</h2>
+            <h3 class="pg_text pg_text-body-alt-color pg_text-2 " data-animation-name="customAnimationIn" data-animation-duration="1750" data-animation-delay="500">
+                <a href="https://www.instagram.com/gallogaragebike" class="pg_active-none pg_border-none pg_btn pg_button-link pg_button-style pg_hover-none pg_none pg_text-active-white pg_text-hover-white pg_btn-1 color-main-secondary" target="_blank">@gallogaragebike</a>
+            </h3>
+
+        </div>
+    </section>
+    <section class="pg_align-center pg_clearfix pg_palette-2-base pg_section-5" id="carousel_9b37">
+		<h1 style="padding-top: 40px; margin-top: -40px;"  id="aboutus"></h1>
+        <div class="pg_clearfix pg_sheet pg_valign-middle pg_sheet-1" id="">
+			<!-- <div class="carousel"> -->
+				<!-- <div class="carousel-track"> -->
+					<!-- <img src="images/_main01.jpg" alt=""> -->
+					<!-- <img src="images/_main02.jpg" alt=""> -->
+					<!-- <img src="images/_main03.jpg" alt=""> -->
+					<!-- <img src="images/_main04.jpg" alt=""> -->
+					<!-- <img src="images/_main05.jpg" alt=""> -->
+				<!-- </div> -->
+
+				<!-- <button class="prev">‹</button> -->
+				<!-- <button class="next">›</button> -->
+			<!-- </div> -->
+			
+			<div class="carousel-main" style="margin: 0 auto;" >
+				<div class="carousel" id="myCarousel" aria-roledescription="carousel" aria-label="Galleria immagini" style="background-color: transparent;">
+				  <div class="carousel-track">
+					<div class="carousel-slide"><img src="images/_main01.jpg" alt="Immagine 1"></div>
+					<!-- <div class="carousel-slide"><img src="images/_main02.jpg" alt="Immagine 2"></div> -->
+					<div class="carousel-slide"><img src="images/_main03.jpg" alt="Immagine 3"></div>
+					<div class="carousel-slide"><img src="images/_main04.jpg" alt="Immagine 4"></div>
+					<div class="carousel-slide"><img src="images/_main05.jpg" alt="Immagine 5"></div>
+					<!-- aggiungi altre slide qui -->
+				  </div>
+
+				  <button class="carousel-btn prev" aria-label="Precedente">&lsaquo;</button>
+				  <button class="carousel-btn next" aria-label="Successiva">&rsaquo;</button>
+
+				  <div class="carousel-dots" role="tablist" aria-label="Selezione immagine"></div>
+				</div>
+			</div>
+
+
+            <!-- <h2 class="pg_text pg_text-1" data-animation-name="customAnimationIn" data-animation-duration="1750" data-animation-delay="0"> Cosa dicono di noi</h2> -->
+            <!-- <div class="pg_expanded-width pg_list pg_list-1"> -->
+                <!-- <div class="pg_repeater pg_repeater-1"> -->
+								
+						
+                    <!-- <div class="pg_container-style pg_list-item pg_repeater-item pg_white pg_list-item-1" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="500"> -->
+						<!-- <div class="pg_container-layout pg_similar-container pg_valign-middle pg_container-layout-1 card"> -->
+							<!-- <img class="img-fluid" alt="100%x280" src="images/avatar1.png" style="height: 295px;"> -->
+							<!-- <div class="card-body"> -->
+								<!-- <h4 class="card-title pg_align-center pg_text pg_text-4" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="750"><br>Mario Rossi<br></h4> -->
+								<!-- <p class="card-text pg_align-center pg_text pg_text-3"><i>Riparazione veloce e servizio TOP</i></p> -->
+							<!-- </div> -->
+						<!-- </div> -->
+					<!-- </div>	 -->
+						
+                    <!-- <div class="pg_container-style pg_list-item pg_repeater-item pg_white pg_list-item-1" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="500"> -->
+						<!-- <div class="pg_container-layout pg_similar-container pg_valign-middle pg_container-layout-1 card"> -->
+							<!-- <img class="img-fluid" alt="100%x280" src="images/avatar2.png" style="height: 295px;"> -->
+							<!-- <div class="card-body"> -->
+								<!-- <h4 class="card-title pg_align-center pg_text pg_text-4" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="750"><br>Lupo Alberto<br></h4> -->
+								<!-- <p class="card-text pg_align-center pg_text pg_text-3"><i>ordialità e precisione. La mia bici non è mai stata così precisa</i></p> -->
+							<!-- </div> -->
+						<!-- </div> -->
+					<!-- </div>						 -->
+						
+                    <!-- <div class="pg_container-style pg_list-item pg_repeater-item pg_white pg_list-item-1" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="500"> -->
+						<!-- <div class="pg_container-layout pg_similar-container pg_valign-middle pg_container-layout-1 card"> -->
+							<!-- <img class="img-fluid" alt="100%x280" src="images/avatar3.png" style="height: 295px;"> -->
+							<!-- <div class="card-body"> -->
+								<!-- <h4 class="card-title pg_align-center pg_text pg_text-4" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="750"><br>Giulia Gliulietta<br></h4> -->
+								<!-- <p class="card-text pg_align-center pg_text pg_text-3"><i>Ripara ogni tipo di problema, come la mia vecchia bici scassata</i></p> -->
+							<!-- </div> -->
+						<!-- </div> -->
+					<!-- </div> -->
+						
+                    <!-- <div class="pg_container-style pg_list-item pg_repeater-item pg_white pg_list-item-1" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="500"> -->
+						<!-- <div class="pg_container-layout pg_similar-container pg_valign-middle pg_container-layout-1 card"> -->
+							<!-- <img class="img-fluid" alt="100%x280" src="images/avatar4.png" style="height: 295px;"> -->
+							<!-- <div class="card-body"> -->
+								<!-- <h4 class="card-title pg_align-center pg_text pg_text-4" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="750"><br>Mastino Napoletano<br></h4> -->
+								<!-- <p class="card-text pg_align-center pg_text pg_text-3"><i>Soddisfattissimo del servizio, ha fatto tornare nuova la mia MTB</i></p> -->
+							<!-- </div> -->
+						<!-- </div> -->
+					<!-- </div> -->
+						
+                <!-- </div> -->
+            <!-- </div> -->
+        </div>
+    </section>
+
+    <section class="pg_align-center pg_clearfix pg_image pg_shading pg_section-9" id="carousel_2a16" data-image-width="1620" data-image-height="1080">
+        <div class="pg_clearfix pg_sheet pg_valign-middle pg_sheet-1">
+            <span class="pg_file-icon pg_icon pg_text-palette-2-base pg_icon-1" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="500">
+                <i class="fa fa-facebook-square fa-5x color-icons-secondary"></i>
+            </span>
+            <h2 class="pg_text pg_text-1 color-main-secondary" data-animation-name="slideIn" data-animation-duration="2000" data-animation-direction="Left"> Seguici su facebook</h2>
+            <h3 class="pg_text pg_text-body-alt-color pg_text-2" data-animation-name="customAnimationIn" data-animation-duration="1750" data-animation-delay="500">
+                <a href="https://www.facebook.com/61586954126087" class="pg_active-none pg_border-none pg_btn pg_button-link pg_button-style pg_hover-none pg_none pg_text-active-white pg_text-hover-white pg_btn-1 color-main-secondary" target="_blank">@gallogaragebike</a>
+            </h3>
+
+        </div>
+    </section>
+    <section class="pg_align-center pg_clearfix pg_palette-2-base pg_section-12" id="carousel_00d8">
+		<h1 style="padding-top: 40px; margin-top: -40px;"  id="contactus"></h1>
+        <div class="pg_clearfix pg_sheet pg_valign-middle pg_sheet-1">
+            <div class="pg_container-style pg_group pg_white pg_group-1" data-animation-name="customAnimationIn" data-animation-duration="1750" data-animation-delay="0">
+                <div class="pg_container-layout pg_valign-middle pg_container-layout-1" style="padding: 0px;">
+				<!-- wrapper con scrollbar verticale forzata -->
+					<!-- <div class="calendar-wrapper" aria-label="Calendario prenotazioni"> -->
+						<!-- <iframe  -->
+							<!-- class="calendar-iframe" -->
+						  <!-- src="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2d3GfaLxXwTZKGniCD_ZOrSBNetGJlnMG1n20k7sw479Gz0xpBTAktecmU3Hd_9k6OKP_db-BF"  -->
+						  <!-- style="border: 0" 					   -->
+						  <!-- frameborder="0"  -->
+						  <!-- scrolling="no"> -->
+						<!-- </iframe> -->
+					<!-- </div> -->
+					
+					<div 
+					  class="calendly-inline-widget"
+					  data-url="https://calendly.com/albi21/30min"
+					  style="min-width: 320px; height: 1000px;">
+					</div>
+					
+                    <!-- <h2 class="pg_align-center pg_text pg_text-1">Contattaci</h2> -->
+                    <!-- <div class="pg_expanded-width-sm pg_expanded-width-xs pg_form pg_form-1"> -->
+                        <!-- <form action="//publish.gallogaragebike.com/Form/Process" method="POST" class="pg_clearfix pg_form-spacing-13 pg_form-vertical pg_inner-form" style="padding: 0;" source="email" name="form"> -->
+                            <!-- <input type="hidden" id="siteId" name="siteId" value="2646264" wfd-invisible="true"> -->
+                            <!-- <input type="hidden" id="pageId" name="pageId" value="2646275" wfd-invisible="true"> -->
+                            <!-- <div class="pg_form-email pg_form-group pg_form-partition-factor-2"> -->
+                                <!-- <label for="email-f18c" class="pg_label">E-mail</label> -->
+                                <!-- <input type="email" placeholder="nome@mail.it" id="email-f18c" name="email" class="pg_grey-5 pg_input pg_input-rectangle pg_input-1" required=""> -->
+                            <!-- </div> -->
+                            <!-- <div class="pg_form-group pg_form-name pg_form-partition-factor-2"> -->
+                                <!-- <label for="name-f18c" class="pg_label">Nome</label> -->
+                                <!-- <input type="text" placeholder="Nome e Cognome / Azienda" id="name-f18c" name="name" class="pg_grey-5 pg_input pg_input-rectangle pg_input-2" required=""> -->
+                            <!-- </div> -->
+                            <!-- <div class="pg_form-group pg_form-partition-factor-2 pg_form-phone pg_form-group-3"> -->
+                                <!-- <label for="phone-cbff" class="pg_label" wfd-invisible="true">Telefono</label> -->
+                                <!-- <input type="tel" pattern="\+?\d{0,2}[\s\(\-]?([0-9]{3})[\s\)\-]?([\s\-]?)([0-9]{3})[\s\-]?([0-9]{2})[\s\-]?([0-9]{2})" placeholder="Nr telefono (es. +39 155552675)" id="phone-cbff" name="phone" class="pg_grey-5 pg_input pg_input-rectangle pg_input-3" required=""> -->
+                            <!-- </div> -->
+                            <!-- <div class="pg_form-date pg_form-group pg_form-partition-factor-2 pg_form-group-4"> -->
+                                <!-- <label for="date-33f9" class="pg_label">Data</label> -->
+                                <!-- <input type="date" placeholder="" id="date-33f9" name="date" class="pg_grey-5 pg_input pg_input-rectangle pg_input-4" required=""> -->
+                            <!-- </div> -->
+                            <!-- <div class="pg_form-group pg_form-message pg_form-group-5"> -->
+                                <!-- <label for="message-1015" class="pg_label">Messaggio</label> -->
+                                <!-- <textarea placeholder="Messaggio" rows="4" cols="50" id="message-1015" name="message-1" class="pg_grey-5 pg_input pg_input-rectangle pg_input-5" required=""></textarea> -->
+                            <!-- </div> -->
+                            <!-- <div class="pg_align-left pg_form-group pg_form-submit"> -->
+                                <!-- <a href="#" class="pg_black pg_btn pg_btn-submit pg_button-style pg_btn-1">Invia</a> -->
+                                <!-- <input type="submit" value="submit" class="pg_form-control-hidden" wfd-invisible="true"> -->
+                            <!-- </div> -->
+                            <!-- <div class="pg_form-send-message pg_form-send-success" wfd-invisible="true"> Thank you! Your message has been sent. </div> -->
+                            <!-- <div class="pg_form-send-error pg_form-send-message" wfd-invisible="true"> Unable to send your message. Please fix errors then try again. </div> -->
+                            <!-- <input type="hidden" value="" name="recaptchaResponse" wfd-invisible="true"> -->
+                        <!-- </form> -->
+                    <!-- </div> -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <footer class="pg_align-center pg_clearfix pg_footer pg_grey-80 pg_footer footer-clean" id="sec-44c2">
+        <div class="pg_clearfix pg_sheet pg_sheet-1 footer" id="footer">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-sm-8 col-md-6 item">
+                        <h3 class="footer">Contatti</h3>
+						<ul class="footer">
+							<li><i class="fa fa-phone"></i><a href="tel:+390547481046">0547 481046</a></li>
+							<li><i class="fa fa-envelope"></i><a href="mailto:info@gallogaragebike.com" target="_blank">info@gallogaragebike.com</a></li>
+							<li><i class="fa fa-map-marker"></i><a href="https://maps.app.goo.gl/W4gc7jSRUuNXRPB4A" target="_blank">Via Cervese, 2361</a></li>
+						</ul>
+                    </div>
+                    <div class="col-lg-6 item social footer">
+                        <p class="copyright">
+                            ©
+                            <script>document.write(new Date().getFullYear())</script> Riparazioni, manutenzione e preparazione gare
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+		<div class="footer-end">
+        </div>
+    </footer>
+</body>
+</html>

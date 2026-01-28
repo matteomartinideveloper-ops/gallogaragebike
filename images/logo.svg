@@ -1,0 +1,30 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="240" viewBox="0 0 600 240" aria-label="GalloBike logo">
+  <defs>
+    <style>
+      .g{fill:#e94f37}
+      .b{fill:#0f1720}
+      .w{fill:#fff}
+    </style>
+  </defs>
+  <rect width="100%" height="100%" fill="transparent"/>
+  <!-- stylized rooster body -->
+  <ellipse cx="140" cy="120" rx="60" ry="40" class="g"/>
+  <circle cx="175" cy="95" r="18" class="g"/>
+  <path d="M116 95 q-18 -10 8 -30 q20 -15 36 -6 q-6 8 -8 18 q-2 8 -36 18z" class="g"/>
+  <!-- head comb -->
+  <path d="M186 84 q20 -22 36 -12 q4 10 -6 18 q-14 8 -30 -6z" class="g"/>
+  <!-- bike wheels -->
+  <circle cx="360" cy="160" r="40" class="b"/>
+  <circle cx="540" cy="160" r="40" class="b"/>
+  <circle cx="360" cy="160" r="28" class="w"/>
+  <circle cx="540" cy="160" r="28" class="w"/>
+  <!-- frame -->
+  <path d="M210 130 L320 120 L380 160 L310 140 L260 140 Z" class="b" opacity="0.9"/>
+  <!-- seat/handle -->
+  <path d="M300 110 L285 100 L270 100" stroke="#0f1720" stroke-width="6" stroke-linecap="round" fill="none"/>
+  <!-- rider (rooster) on bike -->
+  <circle cx="290" cy="95" r="10" class="b"/>
+  <path d="M295 105 q12 10 30 6" stroke="#0f1720" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <text x="20" y="220" font-family="Segoe UI, Roboto, Arial" font-size="28" fill="#0f1720">GalloBike</text>
+</svg>

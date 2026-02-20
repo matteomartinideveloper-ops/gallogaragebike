@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="keywords" content="Gallo Garage Bike">
-    <meta name="description" content="Officina meccanico biciclette a Cesena (FC) – Riparazioni, manutenzione, personalizzazione e consegna/domicilio. Servizi professionali per citybike, bici da corsa, MTB ed eBike">
+    <meta name="description" content="Gallo Garage Bike">
 	<link rel="icon" href="favicon.png" type="image/x-icon">
     <title>Gallo Garage Bike</title>
 
@@ -51,13 +51,19 @@
         window.onscroll = function () { scrollFunction(); };
 
         function scrollFunction() {
-			//ad ogni scroll sulla pagina
             document.getElementById("navbarSupportedContent").className = "collapse navbar-collapse";
             if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+                ////document.getElementById("pg_navbar").style.padding = "0px 0px";
+                //document.getElementById("pg_navbar").style.backgroundColor = "#fff";
+                //document.getElementById("pg_navbar").style.color = "#000";
                 document.getElementById("carousel_e7d3").style.fontSize = "25px";
 				document.getElementById("pg_navbar").classList.remove("navbar_scroll_Top");
 				document.getElementById("pg_navbar").classList.add("navbar_scroll_NoTop");
             } else {
+                ////document.getElementById("pg_navbar").style.padding = "20px 0px";
+                //document.getElementById("pg_navbar").style.backgroundColor = "transparent";
+                //document.getElementById("pg_navbar").style.color = "#E84A27";
+                ////document.getElementById("logo").style.fontSize = "35px";
                 document.getElementById("carousel_e7d3").style.fontSize = "35px";
 				document.getElementById("pg_navbar").classList.remove("navbar_scroll_NoTop");
 				document.getElementById("pg_navbar").classList.add("navbar_scroll_Top");
@@ -65,12 +71,29 @@
         }
 
         function myNavBar() {
-		  //sono in modalità smartphone e clicco sulle 3 linee per espandere il menu
           var x = document.getElementById("navbarSupportedContent");
           if (x.className === "collapse navbar-collapse") {
-			document.getElementById("navbarSupportedContent").classList.remove("collapse");
+            x.className = " navbar-collapse";
+            if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+                //document.getElementById("pg_navbar").style.backgroundColor = "#fff";
+				document.getElementById("pg_navbar").classList.remove("navbar_scroll_NoTop");
+				document.getElementById("pg_navbar").classList.add("navbar_scroll_Top");
+            } else {
+                //document.getElementById("pg_navbar").style.backgroundColor = "#000";
+				document.getElementById("pg_navbar").classList.remove("navbar_scroll_NoTop");
+				document.getElementById("pg_navbar").classList.add("navbar_scroll_Top");
+            }
           } else {
-			document.getElementById("navbarSupportedContent").classList.add("collapse");
+            x.className = "collapse navbar-collapse"; //topnav
+            if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+                //document.getElementById("pg_navbar").style.backgroundColor = "#fff";
+				document.getElementById("pg_navbar").classList.remove("navbar_scroll_NoTop");
+				document.getElementById("pg_navbar").classList.add("navbar_scroll_Top");
+            } else {
+                //document.getElementById("pg_navbar").style.backgroundColor = "transparent";
+				document.getElementById("pg_navbar").classList.remove("navbar_scroll_NoTop");
+				document.getElementById("pg_navbar").classList.add("navbar_scroll_Top");
+            }
           }
         }
 
@@ -266,13 +289,6 @@
 			font-weight: normal;
 			src: local('NCL Sebgorq Demo'), url('fonts/NCLSebgorq-Demo.woff') format('woff');
 		}
-		
-        @font-face {
-            font-family: 'NCLSebgorq';
-            src: url('NCLSebgorq-Regular.ttf') format('truetype');
-            font-weight: normal;
-            font-style: normal;
-        }
 
 		body {
 			font-family: 'StackSansText', sans-serif;	
@@ -325,9 +341,6 @@
 		/* colori */
 		/*  -> primary */
 		.color-main-primary {
-			color: var(--color-main-primary) !important;
-		}
-		.color-bg-main-primary {
 			color: var(--color-main-primary) !important;
 		}
 		.color-text-primary {
@@ -549,21 +562,66 @@
 				text-decoration: underline;
 			}
 
+		/* Hero Button */
+		.btn-hero {
+			display: block;
+			width: fit-content;
+			margin: 30px auto 0;
+			padding: 16px 48px;
+			font-size: 18px;
+			font-weight: 600;
+			color: var(--color-text-primary) !important;
+			background: linear-gradient(135deg, var(--color-main-secondary) 0%, #f5d77f 100%);
+			border: none;
+			border-radius: 50px;
+			text-decoration: none;
+			cursor: pointer;
+			box-shadow: 0 8px 25px rgba(233, 216, 166, 0.4);
+			transition: all 0.3s cubic-bezier(0.22, 0.9, 0.31, 1);
+			font-family: 'StackSansText', sans-serif;
+			letter-spacing: 0.5px;
+		}
 
-        h1 {
-            font-family: 'NCLSebgorq', sans-serif;
-        }
-		
-		.image-service {
-			width: fit-content; 
-			max-width: 100%; 
-			height: 160px;
-			transform: scale(0.8);
+		.btn-hero:hover {
+			background: linear-gradient(135deg, #f5d77f 0%, var(--color-main-secondary) 100%);
+			box-shadow: 0 12px 35px rgba(233, 216, 166, 0.6);
+			transform: translateY(-3px);
+			color: var(--color-text-primary) !important;
+		}
+
+		.btn-hero:active {
+			transform: translateY(-1px);
+			box-shadow: 0 6px 20px rgba(233, 216, 166, 0.4);
+		}
+
+		/* Nascondi immagine "Chi siamo" su mobile */
+		@media (max-width: 768px) {
+			.chisiamo-img {
+				display: none !important;
+			}
+		}
+
+		/* Calendario responsive */
+		.calendar-img {
+			max-width: 50%;
+		}
+
+		@media (max-width: 768px) {
+			.calendar-img {
+				max-width: 100%;
+				padding-bottom: 100px;
+			}
+			
+			/* Footer responsive */
+			.social.footer {
+				width: 100% !important;
+				margin-top: 30px;
+				padding-top: 30px;
+				border-top: 1px solid var(--color-border-secondary);
+			}
 		}
 	</style>
 
-
-    <!--<link href="agency.css" rel="stylesheet">-->
     <meta name="theme-color" content="#95ccc3">
     <meta property="og:title" content="Home">
     <meta property="og:type" content="website">
@@ -580,17 +638,17 @@
                     <img src="images/logo-bg.svg" class="img-logo-nav">
 					<img src="images/logo-chiaro-orizzontale-2x.png" class="img-logo-nav-small">
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" onclick="myNavBar()">
+                <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" onclick="myNavBar()">
                     <span class="fa fa-bars fa-2x btn-color color-main-secondary"></span>
-                </button>
+                </button> -->
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ml-auto nav nav-pills">
+                    <!-- <ul class="navbar-nav ml-auto nav nav-pills">
                         <li class="nav-item">
                             <a class="page-scroll nav-link btn-nav custom-text-zoom-2" href="#scope" data-bs-toggle="collapse" aria-controls="navbarSupportedContent" onclick="closeNavBar()"> <b>M</b>anutenzione</a>
                         </li>
                         <li class="nav-item">
-                            <a class="page-scroll nav-link btn-nav custom-text-zoom-2" href="#packages" data-bs-toggle="collapse" aria-controls="navbarSupportedContent" onclick="closeNavBar()"> <b>S</b>ervizi</a>
+                            <a class="page-scroll nav-link btn-nav custom-text-zoom-2" href="#packages" data-bs-toggle="collapse" aria-controls="navbarSupportedContent" onclick="closeNavBar()"> <b>A</b>ssistenza</a>
                         </li>
                         <li class="nav-item">
                             <a class="page-scroll nav-link btn-nav custom-text-zoom-2" href="#aboutus" data-bs-toggle="collapse" aria-controls="navbarSupportedContent" onclick="closeNavBar()"> <b>O</b>fficina</a>
@@ -601,7 +659,7 @@
                         <li class="nav-item">
                             <a class="page-scroll nav-link btn-nav custom-text-zoom-2" href="#footer" data-bs-toggle="collapse" aria-controls="navbarSupportedContent" onclick="closeNavBar()"> <b>C</b>ontatti</a>
                         </li>
-                    </ul>
+                    </ul> -->
                 </div>
             </div>
         </nav>
@@ -610,140 +668,37 @@
     <section class="skrollable skrollable-between pg_align-center pg_clearfix pg_image pg_shading pg_section-1" src="" id="carousel_e7d3" data-image-width="1619" data-image-height="1080">
         <!--<div style="background-image: linear-gradient(to top, #000, #fff); height:100px;"><span>&nbsp</span></div>-->
         <div class="pg_clearfix pg_sheet pg_valign-middle pg_sheet-1">
-            <h1 class="pg_text pg_text-1 color-main-secondary" style="font-weight: 500; font-size: 140px;" data-animation-name="customAnimationIn" data-animation-duration="1250">Gallo Garage Bike</h1> 
+            <h1 class="pg_text pg_text-1 color-main-secondary" style="font-family:'NCL Sebgorq'; font-weight: 500; font-size: 140px;" data-animation-name="customAnimationIn" data-animation-duration="1250">Gallo Garage Bike</h1> 
 			<!-- <img class="pg_text pg_text-1"  data-animation-name="customAnimationIn" data-animation-duration="1250" src="images/logo-inline-chiaro@2x.png" class="img-logo-nav">-->
-            <h2 class="pg_large-text pg_text pg_text-variant pg_text-2 color-main-secondary" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="500" style="font-size: 1.25rem; font-weight: unset;">Riparazioni, manutenzione e preparazione gare</h2>
+            <p class="pg_large-text pg_text pg_text-variant pg_text-2 color-main-secondary" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="500">Officina bici a Cesena<br/>Riparazioni, manutenzione ed eBike</p>
+			<a id="HeroPrenotaAppuntamento" class="btn-hero" href="#contactus" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="500"><b>Prenota un appuntamento</b></a>
         </div>
     </section>
 	
     <section class="pg_align-center pg_clearfix pg_white pg_section-2" id="carousel_78eb">
 		<h1 style="padding-top: 40px; margin-top: -40px;"  id="scope"></h1>
         <div class="pg_clearfix pg_sheet pg_valign-middle pg_sheet-1">
-            <h2 class="pg_text pg_text-1 color-main-primary font-title" data-animation-name="customAnimationIn" data-animation-duration="1750" data-animation-delay="0" >Manutenzione</h2>
-			<p class="pg_text pg_text-body-alt-color pg_text-2 color-text-primary" data-animation-name="customAnimationIn" data-animation-duration="1750" data-animation-delay="750"> Niente si butta, tutto si ripara! <br/>Non esiste guasto che ci fermi. Solo bici pronte a ripartire.</p>
-            <div class="pg_expanded-width pg_list pg_list-1">
-                <div class="pg_repeater pg_repeater-1">
-                    <div class="pg_align-center pg_container-style pg_custom-border pg_list-item pg_palette-2-base pg_repeater-item pg_shape-rectangle pg_list-item-1" data-animation-name="customAnimationIn" data-animation-duration="1750" data-animation-delay="500" style="border-radius: 10px">
-                        <div class="pg_container-layout pg_similar-container pg_container-layout-1">
-							<span class="pg_border-7 pg_border-palette-1-base pg_file-icon pg_icon pg_icon-rectangle pg_text-palette-2-base pg_white pg_icon-1" data-animation-name="customAnimationIn" data-animation-duration="1000" data-animation-delay="750" style="border-radius: 50%">
-								<i class="fa fa-bullseye fa-3x"></i>
-							</span>
-							<h5 class="pg_text pg_text-4 font-title"> Personalizzazione</h5>
-							<p class="pg_custom-item pg_text pg_text-3">Adattiamo ogni bicicletta alle esigenze specifiche del ciclista, scegliendo e regolando componenti, assetto e dettagli per ottenere comfort, prestazioni e stile su misura.</p>
-						</div>
+            <h2 class="pg_text pg_text-1 color-main-primary font-title"> Chi siamo</h2>
+			<!-- <h2 class="pg_text pg_text-1 color-main-primary font-title" data-animation-name="customAnimationIn" data-animation-direction="Left" data-animation-duration="1750" data-animation-delay="0" >Chi siamo</h2> -->
+			<div style="display: flex; align-items: center; gap: 40px; flex-wrap: wrap;">
+				<img src="images/Chi_siamo.jpg" alt="Chi siamo" style="flex: 0 0 25%; max-width: 300px; height: auto; border-radius: 8px;" class="chisiamo-img" data-animation-name="customAnimationIn" data-animation-duration="1750" data-animation-delay="500">
+				<div style="flex: 1; min-width: 300px;">
+					<p class="pg_text pg_text-body-alt-color pg_text-2 color-text-primary" > Siamo un'officina indipendente di biciclette a Cesena.
+					Ci occupiamo di <b>riparazione, manutenzione e messa a punto</b> di CityBike, MTB, bici da corsa ed eBike.
+					Lavoriamo su appuntamento, partendo sempre da una diagnosi chiara: cosa va sistemato, cosa può aspettare e cosa non conviene fare.
+					Qui non vendiamo soluzioni standard, ma interventi necessari per rimettere la bici in strada in modo sicuro e affidabile.</p>
+					<div style="margin-top: 40px; width: 100%; display: flex; justify-content: center;">
+						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5724.497546524447!2d12.269012075685584!3d44.16073181945843!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132cbac4a956c55b%3A0x3e3ad495f8ce4aed!2sGallo%20garage%20bike!5e0!3m2!1sit!2sit!4v1771577408660!5m2!1sit!2sit" width="1500" height="250" style="border:0; border-radius: 8px;max-width: 100%" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 					</div>
-					<div class="pg_align-center pg_container-style pg_custom-border pg_list-item pg_palette-2-base pg_repeater-item pg_shape-rectangle pg_list-item-2" data-animation-name="customAnimationIn" data-animation-duration="1750" data-animation-delay="500" style="border-radius: 10px">
-						<div class="pg_container-layout pg_similar-container pg_container-layout-2">
-							<span class="pg_border-7 pg_border-palette-1-base pg_file-icon pg_icon pg_icon-rectangle pg_text-palette-2-base pg_white pg_icon-3" data-animation-name="customAnimationIn" data-animation-duration="1000" data-animation-delay="750" style="border-radius: 50%">
-								<i class="fa fa-wrench fa-3x"></i>
-							</span>
-							<h5 class="pg_text pg_text-4 font-title"> Riparazione</h5>
-							<p class="pg_custom-item pg_text pg_text-5">Riparazione bici di ogni genere, da una vecchia CityBike alle più moderne eBike</p>
-						</div>
-					</div>
-					<div class="pg_align-center pg_container-style pg_custom-border pg_list-item pg_palette-2-base pg_repeater-item pg_shape-rectangle pg_list-item-3" data-animation-name="customAnimationIn" data-animation-duration="1750" data-animation-delay="500" style="border-radius: 10px">
-						<div class="pg_container-layout pg_similar-container pg_container-layout-3">
-							<span class="pg_border-7 pg_border-palette-1-base pg_file-icon pg_icon pg_icon-rectangle pg_text-palette-2-base pg_white pg_icon-5" data-animation-name="customAnimationIn" data-animation-duration="1000" data-animation-delay="750" style="border-radius: 50%">
-								<i class="fa fa-truck fa-3x"></i>
-							</span>
-							<h5 class="pg_text pg_text-6 font-title"> Ritiro/Consegna</h5>
-							<p class="pg_custom-item pg_text pg_text-7">Pensiamo a tutto noi: ritiro e consegna a domicilio su appuntamento</p>
-						</div>
-					</div>
-					<div class="pg_align-center pg_container-style pg_custom-border pg_list-item pg_palette-2-base pg_repeater-item pg_shape-rectangle pg_list-item-3" data-animation-name="customAnimationIn" data-animation-duration="1750" data-animation-delay="500" style="border-radius: 10px">
-						<div class="pg_container-layout pg_similar-container pg_container-layout-3">
-							<span class="pg_border-7 pg_border-palette-1-base pg_file-icon pg_icon pg_icon-rectangle pg_text-palette-2-base pg_white pg_icon-5" data-animation-name="customAnimationIn" data-animation-duration="1000" data-animation-delay="750" style="border-radius: 50%">
-								<i class="fa fa-tint fa-3x"></i>
-							</span>
-							<h5 class="pg_text pg_text-6 font-title"> Lavaggio & Detailing</h5>
-							<p class="pg_custom-item pg_text pg_text-7">Lavaggio accurato e detailing per riportare la bici come nuova</p>
-						</div>
-                    </div>
-                </div>
-            </div>
+				</div>
+			</div>
+            <br>
         </div>
     </section>
 	
-    <section class="pg_align-center pg_clearfix pg_section-7" style="bottom: 10px;">
-        <!-- carousel_d6ce -->
-        <h1 style="padding-top: 40px; margin-top: -40px;" id="packages"></h1>
-        <div class="wrapper">
-            <img class="pg_expanded-width pg_image pg_image-1" src="images/main03.png" data-image-width="1585" data-image-height="1080">
-            <h2 class="pg_text pg_text-body-alt-color pg_text-1 color-main-secondary font-title" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="250">Servizi</h2>
-            <p class="pg_text pg_text-body-alt-color pg_text-2 color-text-secondary" data-animation-name="customAnimationIn" data-animation-duration="1750" data-animation-delay="750"> Vendita, setting e consulenza per le vostre bici</p>
-            <div class="pg_list pg_list-1 card_pack">
-                <div>
-                    <!-- class="pg_repeater pg_repeater-1" -->
-                    <div class="pg_align-center pg_border-2 pg_border-palette-2-base pg_container-style pg_list-item pg_repeater-item pg_shape-rectangle pg_white pg_list-item-1 border-color-main-primary" data-animation-name="customanimationin" data-animation-duration="1750" data-animation-delay="250" >
-                        <div class="pg_container-layout pg_similar-container pg_valign-top pg_container-layout-1">
-
-
-                            <div style="grid-gap: 8px; -webkit-box-pack: center; -ms-flex-pack: center; display: -ms-grid; display: grid; grid-template-columns: repeat(auto-fit,minmax(312px,312px)); -webkit-justify-content: center; justify-content: center; width: 100%; text-align: left;">
-
-                                <!-- CARD >>> -->
-                                <!-- CARD - REGULAR -->
-                                <div class="card color-text-secondary" style="width: 250px; margin: 10px;" data-animation-name="slideIn" data-animation-direction="Left" data-animation-duration="1500" data-animation-delay="500">
-                                    <img src="images/VenditaAccessori.png" alt="Avatar" class="image-service">
-                                    <div class="container">
-                                        <h4 class="font-title"><b>Vendita accessori</b></h4>
-
-                                        <div style="-webkit-box-align: center; -ms-flex-align: center; -webkit-align-items: center; align-items: center; display: flex;">
-                                            <span style="font-size: 13px; opacity: .5;">Offriamo una gamma completa di accessori e componenti per ogni bici.</span>
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                                <!-- CARD - PROFESSIONAL -->
-                                <div class="card color-text-secondary" style="width: 250px; margin: 10px;" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="500">
-                                    <img src="images/AcquistiOnline.png" alt="Avatar" class="image-service">
-                                    <div class="container">
-                                        <h4 class="font-title"><b>Acquisti online</b></h4>
-
-                                        <div style="-webkit-box-align: center; -ms-flex-align: center; -webkit-align-items: center; align-items: center; display: flex;">                                            
-                                            <span style="font-size: 13px; opacity: .5;">Supporto e consigli per scegliere la bicicletta o i componenti online</span>                                     
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                                <!-- CARD - PREMIUM -->
-                                <div class="card color-text-secondary" style="width: 250px; margin: 10px;" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="500">
-                                    <img src="images/SettingBici.png" alt="Avatar" class="image-service">
-                                    <div class="container">
-                                        <h4 class="font-title"><b>Setting bici</b></h4>
-
-                                        <div style="-webkit-box-align: center; -ms-flex-align: center; -webkit-align-items: center; align-items: center; display: flex;">
-                                            <span style="font-size: 13px; opacity: .5;">Adattiamo assetto e regolazioni alla tua posizione in sella e al tuo stile di guida</span>
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                                <!-- CARD - PREMIUM -->
-                                <div class="card color-text-secondary" style="width: 250px; margin: 10px;" data-animation-name="slideIn" data-animation-direction="Right" data-animation-duration="1500" data-animation-delay="500">
-                                    <img src="images/SettingComponenti.png" alt="Avatar" class="image-service">
-                                    <div class="container">
-                                        <h4 class="font-title"><b>Setting componenti</b></h4>
-
-                                        <div style="-webkit-box-align: center; -ms-flex-align: center; -webkit-align-items: center; align-items: center; display: flex;">
-                                            <span style="font-size: 13px; opacity: .5;">Regolazione e messa a punto di tutti i componenti della bicicletta, dal ciclocompuer, alla mappatura delle eBike</span>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- <<< CARD -->
-                        </div>
-                    </div>
-
-                </div>
-
-
-            </div> <!-- div pg_list pg_list-1 card_pack -->
-        </div>  <!-- div wrapper -->
+    
         <script type="application/javascript">
-            loadPkgPrice();
+             loadPkgPrice();
             function loadPkgPrice() {
                 let valueDisplays = document.querySelectorAll(".num");
                 let interval = 50;
@@ -763,8 +718,6 @@
             }
         </script>
 
-
-    </section>
     <section class="pg_align-center pg_clearfix pg_image pg_shading pg_section-9" id="carousel_2a16" data-image-width="1620" data-image-height="1080">
         <div class="pg_clearfix pg_sheet pg_valign-middle pg_sheet-1">
             <span class="pg_file-icon pg_icon pg_text-palette-2-base pg_icon-1" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="500">
@@ -781,85 +734,9 @@
     <section class="pg_align-center pg_clearfix pg_palette-2-base pg_section-5" id="carousel_9b37">
 		<h1 style="padding-top: 40px; margin-top: -40px;"  id="aboutus"></h1>
         <div class="pg_clearfix pg_sheet pg_valign-middle pg_sheet-1" id="">
-			<!-- <div class="carousel"> -->
-				<!-- <div class="carousel-track"> -->
-					<!-- <img src="images/_main01.jpg" alt=""> -->
-					<!-- <img src="images/_main02.jpg" alt=""> -->
-					<!-- <img src="images/_main03.jpg" alt=""> -->
-					<!-- <img src="images/_main04.jpg" alt=""> -->
-					<!-- <img src="images/_main05.jpg" alt=""> -->
-				<!-- </div> -->
-
-				<!-- <button class="prev">‹</button> -->
-				<!-- <button class="next">›</button> -->
-			<!-- </div> -->
-			
-			<div class="carousel-main" style="margin: 0 auto;" >
-				<div class="carousel" id="myCarousel" aria-roledescription="carousel" aria-label="Galleria immagini" style="background-color: transparent;">
-				  <div class="carousel-track">
-					<div class="carousel-slide"><img src="images/slide01.jpg" alt="slide image 1"></div>
-					<!-- <div class="carousel-slide"><img src="images/_main02.jpg" alt="Immagine 2"></div> -->
-					<div class="carousel-slide"><img src="images/slide02.jpg" alt="slide image 3"></div>
-					<div class="carousel-slide"><img src="images/slide03.jpg" alt="slide image 4"></div>
-					<div class="carousel-slide"><img src="images/slide04.jpg" alt="slide image 5"></div>
-					<!-- aggiungi altre slide qui -->
-				  </div>
-
-				  <button class="carousel-btn prev" aria-label="Precedente">&lsaquo;</button>
-				  <button class="carousel-btn next" aria-label="Successiva">&rsaquo;</button>
-
-				  <div class="carousel-dots" role="tablist" aria-label="Selezione immagine"></div>
-				</div>
-			</div>
-
-
-            <!-- <h2 class="pg_text pg_text-1" data-animation-name="customAnimationIn" data-animation-duration="1750" data-animation-delay="0"> Cosa dicono di noi</h2> -->
-            <!-- <div class="pg_expanded-width pg_list pg_list-1"> -->
-                <!-- <div class="pg_repeater pg_repeater-1"> -->
-								
-						
-                    <!-- <div class="pg_container-style pg_list-item pg_repeater-item pg_white pg_list-item-1" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="500"> -->
-						<!-- <div class="pg_container-layout pg_similar-container pg_valign-middle pg_container-layout-1 card"> -->
-							<!-- <img class="img-fluid" alt="100%x280" src="images/avatar1.png" style="height: 295px;"> -->
-							<!-- <div class="card-body"> -->
-								<!-- <h4 class="card-title pg_align-center pg_text pg_text-4" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="750"><br>Mario Rossi<br></h4> -->
-								<!-- <p class="card-text pg_align-center pg_text pg_text-3"><i>Riparazione veloce e servizio TOP</i></p> -->
-							<!-- </div> -->
-						<!-- </div> -->
-					<!-- </div>	 -->
-						
-                    <!-- <div class="pg_container-style pg_list-item pg_repeater-item pg_white pg_list-item-1" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="500"> -->
-						<!-- <div class="pg_container-layout pg_similar-container pg_valign-middle pg_container-layout-1 card"> -->
-							<!-- <img class="img-fluid" alt="100%x280" src="images/avatar2.png" style="height: 295px;"> -->
-							<!-- <div class="card-body"> -->
-								<!-- <h4 class="card-title pg_align-center pg_text pg_text-4" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="750"><br>Lupo Alberto<br></h4> -->
-								<!-- <p class="card-text pg_align-center pg_text pg_text-3"><i>ordialità e precisione. La mia bici non è mai stata così precisa</i></p> -->
-							<!-- </div> -->
-						<!-- </div> -->
-					<!-- </div>						 -->
-						
-                    <!-- <div class="pg_container-style pg_list-item pg_repeater-item pg_white pg_list-item-1" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="500"> -->
-						<!-- <div class="pg_container-layout pg_similar-container pg_valign-middle pg_container-layout-1 card"> -->
-							<!-- <img class="img-fluid" alt="100%x280" src="images/avatar3.png" style="height: 295px;"> -->
-							<!-- <div class="card-body"> -->
-								<!-- <h4 class="card-title pg_align-center pg_text pg_text-4" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="750"><br>Giulia Gliulietta<br></h4> -->
-								<!-- <p class="card-text pg_align-center pg_text pg_text-3"><i>Ripara ogni tipo di problema, come la mia vecchia bici scassata</i></p> -->
-							<!-- </div> -->
-						<!-- </div> -->
-					<!-- </div> -->
-						
-                    <!-- <div class="pg_container-style pg_list-item pg_repeater-item pg_white pg_list-item-1" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="500"> -->
-						<!-- <div class="pg_container-layout pg_similar-container pg_valign-middle pg_container-layout-1 card"> -->
-							<!-- <img class="img-fluid" alt="100%x280" src="images/avatar4.png" style="height: 295px;"> -->
-							<!-- <div class="card-body"> -->
-								<!-- <h4 class="card-title pg_align-center pg_text pg_text-4" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="750"><br>Mastino Napoletano<br></h4> -->
-								<!-- <p class="card-text pg_align-center pg_text pg_text-3"><i>Soddisfattissimo del servizio, ha fatto tornare nuova la mia MTB</i></p> -->
-							<!-- </div> -->
-						<!-- </div> -->
-					<!-- </div> -->
-						
-                <!-- </div> -->
-            <!-- </div> -->
+			<h2 class="pg_text pg_text-1 color-main-secondary"> Orari della settimana</h2>
+		<img src="images/calendar.jpg" alt="Calendar" class="calendar-img" style="height: auto; margin: 30px auto 0; display: block; border-radius: 8px;">
+			<br>
         </div>
     </section>
 
@@ -870,7 +747,7 @@
             </span>
             <h2 class="pg_text pg_text-1 color-main-secondary" data-animation-name="slideIn" data-animation-duration="2000" data-animation-direction="Left"> Seguici su facebook</h2>
             <h3 class="pg_text pg_text-body-alt-color pg_text-2" data-animation-name="customAnimationIn" data-animation-duration="1750" data-animation-delay="500">
-                <a href="https://www.facebook.com/61586954126087" class="pg_active-none pg_border-none pg_btn pg_button-link pg_button-style pg_hover-none pg_none pg_text-active-white pg_text-hover-white pg_btn-1 color-main-secondary" target="_blank">@gallogaragebike</a>
+                <a href="https://www.facebook.com/gallogaragebike" class="pg_active-none pg_border-none pg_btn pg_button-link pg_button-style pg_hover-none pg_none pg_text-active-white pg_text-hover-white pg_btn-1 color-main-secondary" target="_blank">@gallogaragebike</a>
             </h3>
 
         </div>
@@ -878,7 +755,10 @@
     <section class="pg_align-center pg_clearfix pg_palette-2-base pg_section-12" id="carousel_00d8">
 		<h1 style="padding-top: 40px; margin-top: -40px;"  id="contactus"></h1>
         <div class="pg_clearfix pg_sheet pg_valign-middle pg_sheet-1">
+			<br>
+			<h2 class="pg_text pg_text-1 color-main-secondary"> Prenotazioni</h2>
             <div class="pg_container-style pg_group pg_white pg_group-1" data-animation-name="customAnimationIn" data-animation-duration="1750" data-animation-delay="0">
+				
                 <div class="pg_container-layout pg_valign-middle pg_container-layout-1" style="padding: 0px;">
 				<!-- wrapper con scrollbar verticale forzata -->
 					<!-- <div class="calendar-wrapper" aria-label="Calendario prenotazioni"> -->
@@ -891,6 +771,7 @@
 						<!-- </iframe> -->
 					<!-- </div> -->
 					
+			
 					<div 
 					  class="calendly-inline-widget"
 					  data-url="https://calendly.com/albi21/30min"
@@ -947,7 +828,7 @@
 						<ul class="footer">
 							<li><i class="fa fa-phone"></i><a href="tel:+390547481046">0547 481046</a></li>
 							<li><i class="fa fa-envelope"></i><a href="mailto:info@gallogaragebike.com" target="_blank">info@gallogaragebike.com</a></li>
-							<li><i class="fa fa-map-marker"></i><a href="https://maps.app.goo.gl/W4gc7jSRUuNXRPB4A" target="_blank">Via Cervese, 2361</a></li>
+							<li><i class="fa fa-map-marker"></i><a href="https://maps.app.goo.gl/QpVQyi5VoFSD9pFn7" target="_blank">Via Cervese, 2361</a></li>
 						</ul>
                     </div>
                     <div class="col-lg-6 item social footer">

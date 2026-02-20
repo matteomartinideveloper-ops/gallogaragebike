@@ -224,7 +224,7 @@ footer {
         }
 
         .pg_section-1 .pg_text-1 {
-            font-size: 100px !important;
+            font-size: 90px !important;
             width: 340px;
         }
 
@@ -521,7 +521,7 @@ footer {
 
 @media (max-width: 767px) {
     .pg_section-2 .pg_sheet-1 {
-        min-height: 1656px;
+        min-height: unset;
     }
 
     .pg_section-2 .pg_text-1 {
@@ -1140,7 +1140,7 @@ footer {
 
 @media (max-width: 991px) {
     .pg_section-5 .pg_sheet-1 {
-        min-height: 918px;
+        min-height: unset;
     }
 
     .pg_section-5 .pg_repeater-1 {

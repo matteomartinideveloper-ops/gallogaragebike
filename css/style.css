@@ -1,0 +1,567 @@
+/* ==========================================================================
+   Gallo Garage Bike - Main Stylesheet (Clean, Modern & Responsive)
+   ========================================================================== */
+
+/* --- Custom Variables & Palette --- */
+:root {
+  --font-text: 'StackSansText', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  --font-title: 'Anton', Impact, sans-serif;
+  --font-hero: 'NCLSebgorq', Georgia, serif;
+  --font-other: 'LatoHairlineItalic', sans-serif;
+
+  /* Palette Gallo Garage Bike */
+  --color-main-primary: #054651;
+  --color-text-primary: #081419;
+  --color-icons-primary: #005F73;
+  --color-bg-fill-primary: #0A9396;
+  --color-bg-surf-primary: #EFF8F5;
+  --color-border-primary: #B1C6C9;
+
+  --color-main-secondary: #E9D8A6;
+  --color-text-secondary: #9B2226;
+  --color-icons-secondary: #CA6702;
+  --color-bg-fill-secondary: #EF9C21;
+  --color-bg-surf-secondary: #F7F0DF;
+  --color-border-secondary: #C6C2B0;
+
+  --nav-height: 80px;
+}
+
+/* --- Font Face Definitions --- */
+@font-face {
+  font-family: 'StackSansText';
+  font-style: normal;
+  font-weight: 400;
+  src: local('StackSansText'), url('../fonts/StackSansText.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Anton';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Anton'), url('../fonts/Anton.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'LatoHairlineItalic';
+  font-style: italic;
+  font-weight: 300;
+  src: local('LatoHairlineItalic'), url('../fonts/LatoHairlineItalic.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'NCLSebgorq';
+  font-style: normal;
+  font-weight: 500;
+  src: local('NCLSebgorq'), url('../fonts/NCLSebgorq-Regular.ttf') format('truetype');
+  font-display: swap;
+}
+
+/* --- Base & Reset --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-text);
+  color: var(--color-text-primary);
+  background-color: #ffffff;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+ul {
+  list-style: none;
+}
+
+/* Ensure anchor links compensate for fixed navbar */
+section, footer, [id] {
+  scroll-margin-top: var(--nav-height);
+}
+
+.container {
+  width: 100%;
+  max-width: 1240px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* --- Utility Classes --- */
+.font-title { font-family: var(--font-title); }
+.font-hero-h1 { font-family: var(--font-hero); }
+.font-other { font-family: var(--font-other); }
+
+.color-main-primary { color: var(--color-main-primary) !important; }
+.color-text-primary { color: var(--color-text-primary) !important; }
+.color-icons-primary { color: var(--color-icons-primary) !important; }
+.color-bg-fill-primary { color: var(--color-bg-fill-primary) !important; }
+.color-bg-surf-primary { color: var(--color-bg-surf-primary) !important; }
+.color-border-primary { color: var(--color-border-primary) !important; }
+
+.color-main-secondary { color: var(--color-main-secondary) !important; }
+.color-text-secondary { color: var(--color-text-secondary) !important; }
+.color-icons-secondary { color: var(--color-icons-secondary) !important; }
+.color-bg-fill-secondary { color: var(--color-bg-fill-secondary) !important; }
+.color-bg-surf-secondary { color: var(--color-bg-surf-secondary) !important; }
+.color-border-secondary { color: var(--color-border-secondary) !important; }
+
+/* --- Navbar --- */
+#pg_navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: background-color 0.3s ease, padding 0.3s ease, box-shadow 0.3s ease;
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.navbar_scroll_Top {
+  background-color: transparent !important;
+}
+
+.navbar_scroll_NoTop {
+  background-color: var(--color-bg-fill-primary) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.navbar-brand {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.img-logo-nav {
+  height: 52px;
+  width: auto;
+  transition: opacity 0.2s ease;
+}
+
+.img-logo-nav-small {
+  height: 42px;
+  width: auto;
+  display: none;
+}
+
+.navbar_scroll_Top .img-logo-nav { display: block; }
+.navbar_scroll_Top .img-logo-nav-small { display: none; }
+.navbar_scroll_NoTop .img-logo-nav { display: none; }
+.navbar_scroll_NoTop .img-logo-nav-small { display: block; }
+
+/* Navbar CTA button */
+.nav-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--color-main-secondary);
+  color: var(--color-text-primary);
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 10px 22px;
+  border-radius: 50px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.nav-cta-btn:hover {
+  background: #f5d77f;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  color: var(--color-text-primary);
+}
+
+/* --- Hero Section --- */
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-image: linear-gradient(0deg, rgba(5, 70, 81, 0.72), rgba(0, 0, 0, 0.55)), url("../images/hero-image.png");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 120px 20px 60px;
+}
+
+.hero-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.hero-title {
+  font-family: var(--font-hero);
+  font-size: clamp(2.8rem, 8vw, 7.5rem);
+  font-weight: 500;
+  color: var(--color-main-secondary);
+  line-height: 1.05;
+  text-shadow: 2px 4px 14px rgba(0, 0, 0, 0.6);
+  margin-bottom: 24px;
+}
+
+.hero-subtitle {
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+  font-weight: 400;
+  color: var(--color-main-secondary);
+  line-height: 1.4;
+  text-shadow: 1px 2px 8px rgba(0, 0, 0, 0.5);
+  margin-bottom: 36px;
+}
+
+.btn-hero {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 16px 44px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-text-primary) !important;
+  background: linear-gradient(135deg, var(--color-main-secondary) 0%, #f5d77f 100%);
+  border: none;
+  border-radius: 50px;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 8px 25px rgba(233, 216, 166, 0.4);
+  transition: all 0.3s cubic-bezier(0.22, 0.9, 0.31, 1);
+  letter-spacing: 0.5px;
+}
+
+.btn-hero i {
+  font-size: 1.25rem;
+}
+
+.btn-hero:hover {
+  background: linear-gradient(135deg, #f5d77f 0%, var(--color-main-secondary) 100%);
+  box-shadow: 0 12px 35px rgba(233, 216, 166, 0.65);
+  transform: translateY(-3px);
+}
+
+.btn-hero:active {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(233, 216, 166, 0.4);
+}
+
+/* --- Section: Chi siamo --- */
+.about-section {
+  padding: 90px 0;
+  background-color: #ffffff;
+}
+
+.section-title {
+  text-align: center;
+  font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+  letter-spacing: 1px;
+  margin-bottom: 48px;
+}
+
+.about-grid {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+
+.about-image-wrapper {
+  flex: 0 0 300px;
+  max-width: 300px;
+}
+
+.about-image {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(5, 70, 81, 0.15);
+  object-fit: cover;
+}
+
+.about-text-wrapper {
+  flex: 1;
+  min-width: 300px;
+}
+
+.about-text {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: var(--color-text-primary);
+  margin-bottom: 30px;
+}
+
+.map-wrapper {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.map-wrapper iframe {
+  width: 100%;
+  height: 280px;
+  border: 0;
+  display: block;
+}
+
+/* --- Social Sections (Instagram & Facebook) --- */
+.social-banner-section {
+  position: relative;
+  padding: 75px 20px;
+  text-align: center;
+  background-image: linear-gradient(0deg, rgba(5, 70, 81, 0.8), rgba(0, 0, 0, 0.65)), url("../images/main04.png");
+  background-position: 50% 0%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.social-icon-wrapper {
+  font-size: 4rem;
+  margin-bottom: 16px;
+  display: inline-block;
+  color: var(--color-icons-secondary);
+  transition: transform 0.25s ease;
+}
+
+.social-banner-section:hover .social-icon-wrapper {
+  transform: scale(1.1);
+}
+
+.social-banner-title {
+  font-family: var(--font-title);
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  color: var(--color-main-secondary);
+  margin-bottom: 12px;
+  letter-spacing: 0.5px;
+}
+
+.social-banner-link {
+  display: inline-block;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--color-main-secondary);
+  padding: 6px 18px;
+  border-radius: 8px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.social-banner-link:hover {
+  background: rgba(233, 216, 166, 0.15);
+  color: #ffffff;
+}
+
+/* --- Section: Orari della settimana --- */
+.hours-section {
+  padding: 85px 0;
+  background-color: var(--color-main-primary);
+  text-align: center;
+}
+
+.hours-title {
+  font-family: var(--font-title);
+  font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+  color: var(--color-main-secondary);
+  margin-bottom: 36px;
+}
+
+.calendar-img-container {
+  max-width: 650px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.calendar-img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
+  display: block;
+}
+
+/* --- Section: Prenotazioni (Calendly) --- */
+.booking-section {
+  padding: 85px 0;
+  background-color: var(--color-main-primary);
+  text-align: center;
+  border-top: 1px solid rgba(233, 216, 166, 0.15);
+}
+
+.booking-title {
+  font-family: var(--font-title);
+  font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+  color: var(--color-main-secondary);
+  margin-bottom: 36px;
+}
+
+.booking-widget-wrapper {
+  max-width: 1080px;
+  margin: 0 auto;
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.35);
+}
+
+.calendly-inline-widget {
+  width: 100%;
+  min-width: 320px;
+  height: 950px;
+}
+
+/* --- Footer --- */
+.site-footer {
+  background-color: #051d23;
+  color: #c9d8da;
+  padding: 60px 0 30px;
+  font-size: 0.95rem;
+}
+
+.footer-grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.footer-col {
+  flex: 1;
+  min-width: 280px;
+}
+
+.footer-heading {
+  font-family: var(--font-title);
+  color: var(--color-main-secondary);
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+  letter-spacing: 0.5px;
+}
+
+.footer-contact-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+  font-size: 1.05rem;
+}
+
+.footer-contact-list i {
+  color: var(--color-main-secondary);
+  font-size: 1.2rem;
+  width: 22px;
+  text-align: center;
+}
+
+.footer-contact-list a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.footer-brand-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  text-align: right;
+}
+
+.footer-tagline {
+  color: var(--color-main-secondary);
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.footer-copyright {
+  color: #8da4a8;
+  font-size: 0.9rem;
+}
+
+.footer-end {
+  height: 6px;
+  background: var(--color-main-secondary);
+  margin-top: 40px;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 900px) {
+  .about-grid {
+    flex-direction: column;
+    text-align: left;
+  }
+  .about-image-wrapper {
+    flex: 0 0 auto;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  .footer-brand-col {
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-section, .hours-section, .booking-section {
+    padding: 60px 0;
+  }
+  .chisiamo-img {
+    display: none !important;
+  }
+  .nav-cta-btn {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
+  .calendly-inline-widget {
+    height: 980px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-container {
+    padding: 12px 16px;
+  }
+  .img-logo-nav {
+    height: 42px;
+  }
+  .img-logo-nav-small {
+    height: 36px;
+  }
+  .btn-hero {
+    padding: 14px 28px;
+    font-size: 1rem;
+    width: 100%;
+  }
+}

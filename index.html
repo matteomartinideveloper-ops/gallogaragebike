@@ -1,853 +1,293 @@
 <!DOCTYPE html>
-<html style="font-size: 16px;" lang="en">
+<html lang="it">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="Gallo Garage Bike">
-    <meta name="description" content="Gallo Garage Bike">
-	<link rel="icon" href="favicon.png" type="image/x-icon">
-    <title>Gallo Garage Bike</title>
-
-    <!-- <link rel="stylesheet" href="css/agency.css" media="screen"> -->
-    <link rel="stylesheet" href="css/main01.css" media="screen" class="pg_static-style">
-    <link rel="stylesheet" href="css/main02.css" media="screen">
-    <link rel="stylesheet" href="css/main03.css" media="screen">
-	<script class="pg_script" type="text/javascript" src="https://code.jquery.com/jquery-3.6.4.min.js" defer=""></script>
-    <script class="pg_script" type="text/javascript" src="js/main01.js" defer=""></script>
-    <link id="pg_theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
-    <link id="pg_page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i">
-
-    <!-- font-awesome -->
-    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <!-- bootstrap -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
-	<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-	
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-	<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-
-  <!-- stripe -->
-  <script async src="https://js.stripe.com/v3/pricing-table.js"></script>
-
-    <script type="application/ld+json">
-        {
-                "@context": "http://schema.org",
-                "@type": "Organization",
-                "name": "",
-                "url": "/",
-                "logo": "images/logo-bg.svg"
-        }
-    </script>
-    <script type="application/javascript">
-        // When the user scrolls down 80px from the top of the document, resize the navbar's padding and the logo's font size
-        window.onscroll = function () { scrollFunction(); };
-
-        function scrollFunction() {
-            document.getElementById("navbarSupportedContent").className = "collapse navbar-collapse";
-            if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-                ////document.getElementById("pg_navbar").style.padding = "0px 0px";
-                //document.getElementById("pg_navbar").style.backgroundColor = "#fff";
-                //document.getElementById("pg_navbar").style.color = "#000";
-                document.getElementById("carousel_e7d3").style.fontSize = "25px";
-				document.getElementById("pg_navbar").classList.remove("navbar_scroll_Top");
-				document.getElementById("pg_navbar").classList.add("navbar_scroll_NoTop");
-            } else {
-                ////document.getElementById("pg_navbar").style.padding = "20px 0px";
-                //document.getElementById("pg_navbar").style.backgroundColor = "transparent";
-                //document.getElementById("pg_navbar").style.color = "#E84A27";
-                ////document.getElementById("logo").style.fontSize = "35px";
-                document.getElementById("carousel_e7d3").style.fontSize = "35px";
-				document.getElementById("pg_navbar").classList.remove("navbar_scroll_NoTop");
-				document.getElementById("pg_navbar").classList.add("navbar_scroll_Top");
-            }
-        }
-
-        function myNavBar() {
-          var x = document.getElementById("navbarSupportedContent");
-          if (x.className === "collapse navbar-collapse") {
-            x.className = " navbar-collapse";
-            if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-                //document.getElementById("pg_navbar").style.backgroundColor = "#fff";
-				document.getElementById("pg_navbar").classList.remove("navbar_scroll_NoTop");
-				document.getElementById("pg_navbar").classList.add("navbar_scroll_Top");
-            } else {
-                //document.getElementById("pg_navbar").style.backgroundColor = "#000";
-				document.getElementById("pg_navbar").classList.remove("navbar_scroll_NoTop");
-				document.getElementById("pg_navbar").classList.add("navbar_scroll_Top");
-            }
-          } else {
-            x.className = "collapse navbar-collapse"; //topnav
-            if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-                //document.getElementById("pg_navbar").style.backgroundColor = "#fff";
-				document.getElementById("pg_navbar").classList.remove("navbar_scroll_NoTop");
-				document.getElementById("pg_navbar").classList.add("navbar_scroll_Top");
-            } else {
-                //document.getElementById("pg_navbar").style.backgroundColor = "transparent";
-				document.getElementById("pg_navbar").classList.remove("navbar_scroll_NoTop");
-				document.getElementById("pg_navbar").classList.add("navbar_scroll_Top");
-            }
-          }
-        }
-
-        function closeNavBar() {
-		//$( "packages" ).scrollTop( 300 );
-		//window.scrollBy(200,300);
-          var x = document.getElementById("navbarSupportedContent");
-            x.className = "collapse navbar-collapse";
-        }
-		
-		var shiftWindow = function() { scrollBy(0, -500) };
-		if (location.hash) shiftWindow();
-		window.addEventListener("hashchange", shiftWindow);
-		
-		//CAROSEL
-		/*
-		  Carosello vanilla JS: funzionalità
-		  - autoplay (opzionale)
-		  - pause on hover/focus
-		  - frecce prev/next
-		  - paginazione (dots)
-		  - swipe touch
-		  - keyboard arrow left/right
-		*/
-
-		document.addEventListener('DOMContentLoaded', function(){
-		  const carousel = document.getElementById('myCarousel');
-		  if (!carousel) return;
-
-		  const track = carousel.querySelector('.carousel-track');
-		  const slides = Array.from(track.children);
-		  const prevBtn = carousel.querySelector('.carousel-btn.prev');
-		  const nextBtn = carousel.querySelector('.carousel-btn.next');
-		  const dotsContainer = carousel.querySelector('.carousel-dots');
-
-		  let index = 0;
-		  let isAnimating = false;
-
-		  // Parametri
-		  const AUTOPLAY = true;           // true per autoplay
-		  const AUTOPLAY_DELAY = 3000;    // ms
-		  let autoplayTimer = null;
-
-		  // Crea i dot
-		  slides.forEach((_, i) => {
-			const btn = document.createElement('button');
-			btn.type = 'button';
-			btn.setAttribute('aria-pressed', i === 0 ? 'true' : 'false');
-			btn.dataset.index = i;
-			btn.addEventListener('click', () => goTo(i));
-			dotsContainer.appendChild(btn);
-		  });
-
-		  const dots = Array.from(dotsContainer.children);
-
-		  function updateUI(){
-			// translateX
-			track.style.transform = `translateX(${-index * 100}%)`;
-			// update dots aria
-			dots.forEach((d, i) => d.setAttribute('aria-pressed', i===index ? 'true' : 'false'));
-		  }
-
-		  function goTo(i){
-			if (isAnimating) return;
-			index = ((i % slides.length) + slides.length) % slides.length;
-			updateUI();
-			resetAutoplay();
-		  }
-
-		  function prev(){
-			goTo(index - 1);
-		  }
-
-		  function next(){
-			goTo(index + 1);
-		  }
-
-		  prevBtn.addEventListener('click', prev);
-		  nextBtn.addEventListener('click', next);
-
-		  // Keyboard
-		  carousel.addEventListener('keydown', e => {
-			if (e.key === 'ArrowLeft') prev();
-			if (e.key === 'ArrowRight') next();
-		  });
-
-		  // Make carousel focusable
-		  carousel.tabIndex = 0;
-
-		  // Autoplay controls
-		  function startAutoplay(){
-			if (!AUTOPLAY) return;
-			stopAutoplay();
-			autoplayTimer = setInterval(() => next(), AUTOPLAY_DELAY);
-		  }
-		  function stopAutoplay(){ if (autoplayTimer) { clearInterval(autoplayTimer); autoplayTimer = null; } }
-		  function resetAutoplay(){ stopAutoplay(); startAutoplay(); }
-
-		  // Pause on hover / focus
-		  carousel.addEventListener('mouseenter', stopAutoplay);
-		  carousel.addEventListener('mouseleave', startAutoplay);
-		  carousel.addEventListener('focusin', stopAutoplay);
-		  carousel.addEventListener('focusout', startAutoplay);
-
-		  // Touch / swipe support (basic)
-		  let startX = 0, currentX = 0, dragging = false;
-		  track.addEventListener('pointerdown', e => {
-			dragging = true;
-			startX = e.clientX;
-			track.style.transition = 'none';
-			e.target.setPointerCapture && e.target.setPointerCapture(e.pointerId);
-		  });
-		  track.addEventListener('pointermove', e => {
-			if (!dragging) return;
-			currentX = e.clientX;
-			const dx = currentX - startX;
-			// small drag effect: translate by offset
-			track.style.transform = `translateX(${ -index*100 + (dx / carousel.clientWidth) * 100 }%)`;
-		  });
-		  track.addEventListener('pointerup', e => {
-			if (!dragging) return;
-			dragging = false;
-			track.style.transition = '';
-			const dx = e.clientX - startX;
-			// threshold 1/8 width
-			if (dx > carousel.clientWidth / 8) prev();
-			else if (dx < -carousel.clientWidth / 8) next();
-			else updateUI();
-		  });
-		  track.addEventListener('pointercancel', () => { dragging = false; updateUI(); });
-
-		  // Resize: keep current slide visible
-		  window.addEventListener('resize', updateUI);
-
-		  // Initialize
-		  updateUI();
-		  startAutoplay();
-		});
-				
-    </script>
-	<style>		
-	
-		
-		:root {
-			--text-font: 'StackSansText', sans-serif;
-			--heading-font: 'StackSansText', sans-serif;
-			--heading-font: 'StackSansText', sans-serif;
-			--color-main-primary: #054651;
-			--color-text-primary: #081419;
-			--color-icons-primary: #005F73;
-			--color-bg-fill-primary: #0A9396;
-			--color-bg-surf-primary: #EFF8F5;
-			--color-border-primary: #B1C6C9;
-			--color-main-secondary: #E9D8A6;
-			--color-text-secondary: #9B2226;
-			--color-icons-secondary: #CA6702;
-			--color-bg-fill-secondary: #EF9C21;
-			--color-bg-surf-secondary: #F7F0DF;
-			--color-border-secondary: #C6C2B0;
-			--carousel-width: 800px;
-			--carousel-height: 450px;
-			--btn-size: 44px;
-		}
-
-  
-		@font-face {			
-			font-family: 'StackSansText';
-			font-style: normal;
-			font-weight: normal;
-			src: local('StackSansText'), url('fonts/StackSansText.ttf') format('ttf');
-		}
-		@font-face {			
-			font-family: 'Anton';
-			font-style: normal;
-			font-weight: normal;
-			src: local('Anton'), url('fonts/Anton.ttf') format('ttf');
-		}
-		@font-face {			
-			font-family: 'LatoHairlineItalic';
-			font-style: normal;
-			font-weight: normal;
-			src: local('LatoHairlineItalic'), url('fonts/LatoHairlineItalic.ttf') format('ttf');
-		}
-		@font-face {			
-			font-family: 'NCL Sebgorq';
-			font-style: normal;
-			font-weight: normal;
-			src: local('NCL Sebgorq'), url('fonts/NCLSebgorq.ttf') format('ttf');
-		}
-		@font-face {
-			font-family: 'NCL Sebgorq Demo';
-			font-style: normal;
-			font-weight: normal;
-			src: local('NCL Sebgorq Demo'), url('fonts/NCLSebgorq-Demo.woff') format('woff');
-		}
-        @font-face {
-            font-family: 'NCLSebgorq';
-            src: url('NCLSebgorq-Regular.ttf') format('truetype');
-            font-weight: normal;
-            font-style: normal;
-        }
-
-		body {
-			font-family: 'StackSansText', sans-serif;	
-			color: var(--color-text-primary);
-		}
-		footer {
-			font-family: 'StackSansText', sans-serif !important;	
-			color: var(--color-text-primary);
-		}
-		.footer {
-			font-family: 'StackSansText', sans-serif !important;	
-			color: var(--color-text-primary);
-		}
-		
-		.navbar_scroll_Top {
-			background-color: transparent !important;
-		}
-		
-		.navbar_scroll_NoTop {
-			background-color: var(--color-bg-fill-primary) !important;
-		}
-		
-		.navbar_scroll_Top .img-logo-nav {
-			display: unset !important;
-		}
-		.navbar_scroll-Top .img-logo-nav-small {
-			display: none !important;
-		}
-		
-		.navbar_scroll_NoTop .img-logo-nav {
-			display: none !important;
-		}
-		.navbar_scroll_NoTop .img-logo-nav-small {
-			display: unset !important;
-		}
-		
-		.card {
-		  transition: 0.3s;
-		  width: 40%;
-		  border: 0px;
-		}
-
-		.card:hover {
-		}
-
-		.container {
-		  padding: 2px 16px;
-		}
-		
-		/* colori */
-		/*  -> primary */
-		.color-main-primary {
-			color: var(--color-main-primary) !important;
-		}
-		.color-text-primary {
-			color: var(--color-text-primary) !important;
-		}
-		.color-icons-primary {
-			color: var(--color-icons-primary) !important;
-		}
-		.color-bg-fill-primary {
-			color: var(--color-bg-fill-primary) !important;
-		}
-		.color-bg-surf-primary {
-			color: var(--color-bg-surf-primary) !important;
-		}
-		.color-border-primary {
-			color: var(--color-border-primary) !important;
-		}
-		/*  -> secondary */	
-		.color-bg-main-secondary {
-			color: var(--color-main-secondary) !important;
-		}
-		.color-main-secondary {
-			color: var(--color-main-secondary) !important;
-		}
-		.color-text-secondary {
-			color: var(--color-text-secondary) !important;
-		}
-		.color-icons-secondary {
-			color: var(--color-icons-secondary) !important;
-		}
-		.color-bg-fill-secondary {
-			color: var(--color-bg-fill-secondary) !important;
-		}                      
-		.color-bg-surf-secondary {
-			color: var(--color-bg-surf-secondary) !important;
-		}                      
-		.color-border-secondary {
-			color: var(--color-border-secondary) !important;
-		}
-		/* colori */
-		
-		.border-color-main-primary {
-			border-radius: 10px !important; 
-			border: 8px solid var(--color-border-primary) !important;
-		}
-		
-		.footer-end {
-			border: 8px solid var(--color-border-secondary) !important;
-		}
-		
-		.font-title {
-			font-family: 'Anton', sans-serif !important;	
-		}
-		
-		.font-other {
-			font-family: 'LatoHairlineItalic', sans-serif !important;	
-		}
-		
-		.font-hero-h1 {
-			font-family: 'NCLSebgorq', serif !important;	
-		}
-		
-		.pg_responsive-xs .navbar-collapse {
-			background-color: color-mix(in srgb, var(--color-border-primary) 40%, transparent)
-		}
-		
-		/*   calendar wrapper */	
-		  /* Wrapper: dimensione, bordo opzionale e scrollbar verticale (sempre visibile) */
-		  .calendar-wrapper{
-			width: 100%;            /* oppure una larghezza fissa, es. 800px */
-			max-width: 1200px;
-			height: 700px;          /* altezza visibile del calendario nella landing */
-			overflow-y: auto;       /* abilita lo scrollbar verticale */
-			overflow-x: hidden;     /* impedisce scrollbar orizzontale */
-			-webkit-overflow-scrolling: touch; /* smooth scrolling su iOS */
-			box-sizing: border-box;
-			border-radius: 6px;
-			
-			background: transparent;
-		  }
-
-		  /* Iframe: dimensioni 100% del wrapper */
-		  .calendar-iframe{
-			width: 100%;
-			height: 1420px; /* più grande del wrapper: il contenuto scorrerà nel wrapper */
-			border: 0;
-			display: block;
-			box-sizing: border-box;
-			background: transparent;
-		  }
-
-		  /* Forza scrollbar verticale sempre visibile (solo su desktop moderni) */
-		  .calendar-wrapper {
-			overflow-y: scroll;
-		  }
-		  
-		  .calendly-inline-widget {
-			  width: 100%;
-			  height: 950px  /* 100vh; - oppure 80vh o qualunque altezza responsive */
-			  min-height: 320px; /* 7000px - fallback sui desktop */
-			}
-		/*  carosel */
-
-		.carousel-main {
-			display:flex;
-			justify-content:center;
-			margin: 0 auto !important;
-		}
-		
-		/* Contenitore */
-		.carousel {
-		width: min(var(--carousel-width), 100%);
-		max-width: var(--carousel-width);
-		height: var(--carousel-height);
-		position: relative;
-		overflow: hidden;
-		border-radius: 8px;
-		box-shadow: 0 6px 20px rgba(0,0,0,.12);
-		background: #fff;
-		touch-action: pan-y;
-		}
-
-		/* Track che scorre */
-		.carousel-track {
-		display: flex;
-		height: 100%;
-		transition: transform 450ms cubic-bezier(.22,.9,.31,1);
-		will-change: transform;
-		}
-
-		/* Ogni slide */
-		.carousel-slide{
-		min-width: 100%;
-		height: 100%;
-		display:flex;
-		align-items:center;
-		justify-content:center;
-		user-select: none;
-		-webkit-user-drag: none;
-		}
-
-		.carousel-slide img{
-		max-width: 100%;
-		max-height: 100%;
-		object-fit: contain;
-		display:block;
-		pointer-events: none;
-		}
-
-		/* Frecce */
-		.carousel-btn{
-		position: absolute;
-		top: 50%;
-		transform: translateY(-50%);
-		width: var(--btn-size);
-		height: var(--btn-size);
-		border-radius: 50%;
-		border: none;
-		background: rgba(0,0,0,.45);
-		color: #fff;
-		font-size: 20px;
-		cursor:pointer;
-		display:flex;
-		align-items:center;
-		justify-content:center;
-		z-index: 10;
-		transition: background .15s;
-		}
-		.carousel-btn:hover{ background: rgba(0,0,0,.65); }
-		.carousel-btn:active{ transform: translateY(-50%) scale(.98); }
-		.carousel-btn.prev{ left: 12px; }
-		.carousel-btn.next{ right: 12px; }
-
-		/* Punti (pagination) */
-		.carousel-dots{
-		position: absolute;
-		left: 50%;
-		transform: translateX(-50%);
-		bottom: 10px;
-		display:flex;
-		gap:8px;
-		z-index: 10;
-		}
-		.carousel-dots button{
-		width:10px;height:10px;border-radius:50%;border:none;background:rgba(0,0,0,.25);cursor:pointer;padding:0;
-		}
-		.carousel-dots button[aria-pressed="true"]{ background: rgba(0,0,0,.8); width:12px; height:12px; }
-
-		/* Hide controls on small screens if desired */
-		@media (max-width:420px){
-		.carousel-btn{ display: none; }
-		}
-
-		/*  footer */	
-			.footer {
-				list-style: none;
-				padding: 0;
-			}
-
-			.footer li {
-				display: flex;
-				align-items: center;
-				margin-bottom: 6px;
-			}
-
-			.footer li i {
-				width: 20px;
-				text-align: center;
-				margin-right: 4px;					
-				color: var(--color-text-primary);
-			}
-
-			.footer li a {
-				color: var(--color-text-primary);  /* inherit; usa il colore del testo circostante */
-				text-decoration: none;
-			}
-
-			.footer li a:hover {
-				text-decoration: underline;
-			}
-
-		/* Hero Button */
-		.btn-hero {
-			display: block;
-			width: fit-content;
-			margin: 30px auto 0;
-			padding: 16px 48px;
-			font-size: 18px;
-			font-weight: 600;
-			color: var(--color-text-primary) !important;
-			background: linear-gradient(135deg, var(--color-main-secondary) 0%, #f5d77f 100%);
-			border: none;
-			border-radius: 50px;
-			text-decoration: none;
-			cursor: pointer;
-			box-shadow: 0 8px 25px rgba(233, 216, 166, 0.4);
-			transition: all 0.3s cubic-bezier(0.22, 0.9, 0.31, 1);
-			font-family: 'StackSansText', sans-serif;
-			letter-spacing: 0.5px;
-		}
-
-		.btn-hero:hover {
-			background: linear-gradient(135deg, #f5d77f 0%, var(--color-main-secondary) 100%);
-			box-shadow: 0 12px 35px rgba(233, 216, 166, 0.6);
-			transform: translateY(-3px);
-			color: var(--color-text-primary) !important;
-		}
-
-		.btn-hero:active {
-			transform: translateY(-1px);
-			box-shadow: 0 6px 20px rgba(233, 216, 166, 0.4);
-		}
-
-		/* Nascondi immagine "Chi siamo" su mobile */
-		@media (max-width: 768px) {
-			.chisiamo-img {
-				display: none !important;
-			}
-		}
-
-		/* Calendario responsive */
-		.calendar-img {
-			max-width: 50%;
-		}
-
-		@media (max-width: 768px) {
-			.calendar-img {
-				max-width: 100%;
-				padding-bottom: 100px;
-			}
-			
-			/* Footer responsive */
-			.social.footer {
-				width: 100% !important;
-				margin-top: 30px;
-				padding-top: 30px;
-				border-top: 1px solid var(--color-border-secondary);
-			}
-		}
-	</style>
-
-    <meta name="theme-color" content="#95ccc3">
-    <meta property="og:title" content="Home">
-    <meta property="og:type" content="website">
-    <link rel="canonical" href="/">
-
-</head>
-<body id="page-top" class="index pg_body pg_xl-mode" data-lang="en">
-    <div id="pg_navbar">
-
-
-        <nav id="nav-menu" class="navbar top navbar-expand-lg navbar-light navbar-custom navbar-fixed-top">  	<!-- navbar top navbar-expand-lg navbar-light navbar-custom navbar-fixed-top -->
-            <div class="container">
-                <a class="navbar-brand" href="#">
-                    <img src="images/logo-bg.svg" class="img-logo-nav">
-					<img src="images/logo-chiaro-orizzontale-2x.png" class="img-logo-nav-small">
-                </a>
-                <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" onclick="myNavBar()">
-                    <span class="fa fa-bars fa-2x btn-color color-main-secondary"></span>
-                </button> -->
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- <ul class="navbar-nav ml-auto nav nav-pills">
-                        <li class="nav-item">
-                            <a class="page-scroll nav-link btn-nav custom-text-zoom-2" href="#scope" data-bs-toggle="collapse" aria-controls="navbarSupportedContent" onclick="closeNavBar()"> <b>M</b>anutenzione</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="page-scroll nav-link btn-nav custom-text-zoom-2" href="#packages" data-bs-toggle="collapse" aria-controls="navbarSupportedContent" onclick="closeNavBar()"> <b>A</b>ssistenza</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="page-scroll nav-link btn-nav custom-text-zoom-2" href="#aboutus" data-bs-toggle="collapse" aria-controls="navbarSupportedContent" onclick="closeNavBar()"> <b>O</b>fficina</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="page-scroll nav-link btn-nav custom-text-zoom-2" href="#contactus" data-bs-toggle="collapse" aria-controls="navbarSupportedContent" onclick="closeNavBar()"> <b>P</b>renotazioni</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="page-scroll nav-link btn-nav custom-text-zoom-2" href="#footer" data-bs-toggle="collapse" aria-controls="navbarSupportedContent" onclick="closeNavBar()"> <b>C</b>ontatti</a>
-                        </li>
-                    </ul> -->
-                </div>
-            </div>
-        </nav>
-    </div>
-    </header>
-    <section class="skrollable skrollable-between pg_align-center pg_clearfix pg_image pg_shading pg_section-1" src="" id="carousel_e7d3" data-image-width="1619" data-image-height="1080">
-        <!--<div style="background-image: linear-gradient(to top, #000, #fff); height:100px;"><span>&nbsp</span></div>-->
-        <div class="pg_clearfix pg_sheet pg_valign-middle pg_sheet-1">
-            <h1 class="pg_text pg_text-1 color-main-secondary" style="font-family:'NCLSebgorq'; font-weight: 500; font-size: 140px;" data-animation-name="customAnimationIn" data-animation-duration="1250">Gallo Garage Bike</h1> 
-			<!-- <img class="pg_text pg_text-1"  data-animation-name="customAnimationIn" data-animation-duration="1250" src="images/logo-inline-chiaro@2x.png" class="img-logo-nav">-->
-            <p class="pg_large-text pg_text pg_text-variant pg_text-2 color-main-secondary" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="500">Officina bici a Cesena<br/>Riparazioni, manutenzione ed eBike</p>
-			<a id="HeroPrenotaAppuntamento" class="btn-hero" href="#contactus" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="500"><b>Prenota un appuntamento</b></a>
-        </div>
-    </section>
-	
-    <section class="pg_align-center pg_clearfix pg_white pg_section-2" id="carousel_78eb">
-		<h1 style="padding-top: 40px; margin-top: -40px;"  id="scope"></h1>
-        <div class="pg_clearfix pg_sheet pg_valign-middle pg_sheet-1">
-            <h2 class="pg_text pg_text-1 color-main-primary font-title"> Chi siamo</h2>
-			<!-- <h2 class="pg_text pg_text-1 color-main-primary font-title" data-animation-name="customAnimationIn" data-animation-direction="Left" data-animation-duration="1750" data-animation-delay="0" >Chi siamo</h2> -->
-			<div style="display: flex; align-items: center; gap: 40px; flex-wrap: wrap;">
-				<img src="images/Chi_siamo.jpg" alt="Chi siamo" style="flex: 0 0 25%; max-width: 300px; height: auto; border-radius: 8px;" class="chisiamo-img" data-animation-name="customAnimationIn" data-animation-duration="1750" data-animation-delay="500">
-				<div style="flex: 1; min-width: 300px;">
-					<p class="pg_text pg_text-body-alt-color pg_text-2 color-text-primary" > Siamo un'officina indipendente di biciclette a Cesena.
-					Ci occupiamo di <b>riparazione, manutenzione e messa a punto</b> di CityBike, MTB, bici da corsa ed eBike.
-					Lavoriamo su appuntamento, partendo sempre da una diagnosi chiara: cosa va sistemato, cosa può aspettare e cosa non conviene fare.
-					Qui non vendiamo soluzioni standard, ma interventi necessari per rimettere la bici in strada in modo sicuro e affidabile.</p>
-					<div style="margin-top: 40px; width: 100%; display: flex; justify-content: center;">
-						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5724.497546524447!2d12.269012075685584!3d44.16073181945843!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132cbac4a956c55b%3A0x3e3ad495f8ce4aed!2sGallo%20garage%20bike!5e0!3m2!1sit!2sit!4v1771577408660!5m2!1sit!2sit" width="1500" height="250" style="border:0; border-radius: 8px;max-width: 100%" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-					</div>
-				</div>
-			</div>
-            <br>
-        </div>
-    </section>
-	
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-        <script type="application/javascript">
-             loadPkgPrice();
-            function loadPkgPrice() {
-                let valueDisplays = document.querySelectorAll(".num");
-                let interval = 50;
-                valueDisplays.forEach((valueDisplay) => {
-                    valueDisplay.textContent = '000 €';
-                    let startValue = 0;
-                    let endValue = parseInt(valueDisplay.getAttribute("data-val"));
-                    let duration =Math.floor(interval / endValue);
-                    let counter = setInterval(function () {
-                    startValue += 1;
-                    valueDisplay.textContent = startValue + ' €';
-                    if (startValue >= endValue) {
-                        clearInterval(counter);
-                    }
-                    }, duration);
-                });
-            }
-        </script>
+    <!-- SEO Primario -->
+    <title>Gallo Garage Bike | Officina Biciclette a Cesena - Riparazione, Assistenza ed eBike</title>
+    <meta name="description" content="Officina indipendente di biciclette a Cesena. Riparazione, manutenzione e assistenza specializzata per CityBike, MTB, bici da corsa ed eBike. Diagnosi trasparente e prenotazione appuntamenti online.">
+    <meta name="keywords" content="officina bici cesena, riparazione biciclette cesena, assistenza ebike cesena, meccanico bici cesena, manutenzione mtb cesena, riparazione bici da corsa cesena, gallo garage bike">
+    <meta name="author" content="Gallo Garage Bike">
+    <link rel="canonical" href="https://www.gallogaragebike.it/">
+    <meta name="theme-color" content="#054651">
 
-    <section class="pg_align-center pg_clearfix pg_image pg_shading pg_section-9" id="carousel_2a16" data-image-width="1620" data-image-height="1080">
-        <div class="pg_clearfix pg_sheet pg_valign-middle pg_sheet-1">
-            <span class="pg_file-icon pg_icon pg_text-palette-2-base pg_icon-1" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="500">
-                <i class="fa fa-instagram  fa-5x color-icons-secondary"></i>
-            </span>
+    <!-- Favicon & Touch Icons -->
+    <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="apple-touch-icon" href="images/logo-bg.svg">
 
-            <h2 class="pg_text pg_text-1 color-main-secondary" data-animation-name="slideIn" data-animation-duration="2000" data-animation-direction="Left"> Seguici su instagram</h2>
-            <h3 class="pg_text pg_text-body-alt-color pg_text-2 " data-animation-name="customAnimationIn" data-animation-duration="1750" data-animation-delay="500">
-                <a href="https://www.instagram.com/gallogaragebike" class="pg_active-none pg_border-none pg_btn pg_button-link pg_button-style pg_hover-none pg_none pg_text-active-white pg_text-hover-white pg_btn-1 color-main-secondary" target="_blank">@gallogaragebike</a>
-            </h3>
+    <!-- Open Graph / Facebook -->
+    <meta property="og:locale" content="it_IT">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Gallo Garage Bike | Officina Biciclette a Cesena">
+    <meta property="og:description" content="Riparazione, manutenzione ed eBike a Cesena. Diagnosi chiara e affidabilità per ogni tipo di bicicletta. Prenota il tuo appuntamento online.">
+    <meta property="og:url" content="https://www.gallogaragebike.it/">
+    <meta property="og:site_name" content="Gallo Garage Bike">
+    <meta property="og:image" content="https://www.gallogaragebike.it/images/hero-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Gallo Garage Bike Officina Cesena">
 
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Gallo Garage Bike | Officina Biciclette a Cesena">
+    <meta name="twitter:description" content="Riparazione, manutenzione ed eBike a Cesena. Diagnosi chiara e affidabilità per ogni tipo di bicicletta.">
+    <meta name="twitter:image" content="https://www.gallogaragebike.it/images/hero-image.png">
+
+    <!-- Dati Strutturati Schema.org (JSON-LD) per SEO Locale -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BikeRepairShop",
+      "name": "Gallo Garage Bike",
+      "image": "https://www.gallogaragebike.it/images/hero-image.png",
+      "logo": "https://www.gallogaragebike.it/images/logo-bg.svg",
+      "url": "https://www.gallogaragebike.it/",
+      "telephone": ["+390547486328", "+393493022261"],
+      "email": "gallogaragebike@gmail.com",
+      "priceRange": "€€",
+      "description": "Officina indipendente di biciclette a Cesena specializzata in riparazione, manutenzione e assistenza per bici da corsa, MTB, CityBike ed eBike.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Via Cervese, 2361",
+        "addressLocality": "Cesena",
+        "postalCode": "47521",
+        "addressRegion": "FC",
+        "addressCountry": "IT"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 44.1607318,
+        "longitude": 12.269012
+      },
+      "hasMap": "https://maps.app.goo.gl/QpVQyi5VoFSD9pFn7",
+      "sameAs": [
+        "https://www.instagram.com/gallogaragebike",
+        "https://www.facebook.com/gallogaragebike"
+      ],
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Monday",
+          "opens": "08:30",
+          "closes": "12:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Monday",
+          "opens": "14:30",
+          "closes": "18:30"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Tuesday",
+          "opens": "08:30",
+          "closes": "12:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Wednesday",
+          "opens": "14:30",
+          "closes": "18:30"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Thursday",
+          "opens": "08:30",
+          "closes": "12:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Thursday",
+          "opens": "14:30",
+          "closes": "18:30"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Friday",
+          "opens": "08:30",
+          "closes": "12:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Friday",
+          "opens": "14:30",
+          "closes": "18:30"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "09:30",
+          "closes": "13:30"
+        }
+      ]
+    }
+    </script>
+
+    <!-- FontAwesome Icon Font -->
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+
+    <!-- CSS Unificato & Ottimizzato -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Calendly Widget Script -->
+    <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+</head>
+<body id="page-top">
+
+    <!-- Navbar Minimale & Fissa -->
+    <header id="pg_navbar" class="navbar_scroll_Top">
+        <div class="navbar-container">
+            <a class="navbar-brand" href="#page-top" aria-label="Gallo Garage Bike Home">
+                <img src="images/logo-bg.svg" alt="Gallo Garage Bike Logo" class="img-logo-nav">
+                <img src="images/logo-chiaro-orizzontale-2x.png" alt="Gallo Garage Bike Logo" class="img-logo-nav-small">
+            </a>
+        </div>
+    </header>
+
+    <!-- Sezione Hero -->
+    <section class="hero-section" id="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Gallo Garage Bike</h1> 
+            <p class="hero-subtitle">Officina bici a Cesena<br>Riparazioni, manutenzione ed eBike</p>
+            <a id="HeroPrenotaAppuntamento" class="btn-hero" href="#contactus">
+                <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
+                <b>Prenota un appuntamento</b>
+            </a>
         </div>
     </section>
-    <section class="pg_align-center pg_clearfix pg_palette-2-base pg_section-5" id="carousel_9b37">
-		<h1 style="padding-top: 40px; margin-top: -40px;"  id="aboutus"></h1>
-        <div class="pg_clearfix pg_sheet pg_valign-middle pg_sheet-1" id="">
-			<h2 class="pg_text pg_text-1 color-main-secondary"> Orari della settimana</h2>
-		<img src="images/calendar.jpg" alt="Calendar" class="calendar-img" style="height: auto; margin: 30px auto 0; display: block; border-radius: 8px;">
-			<br>
-        </div>
-    </section>
-
-    <section class="pg_align-center pg_clearfix pg_image pg_shading pg_section-9" id="carousel_2a16" data-image-width="1620" data-image-height="1080">
-        <div class="pg_clearfix pg_sheet pg_valign-middle pg_sheet-1">
-            <span class="pg_file-icon pg_icon pg_text-palette-2-base pg_icon-1" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="500">
-                <i class="fa fa-facebook-square fa-5x color-icons-secondary"></i>
-            </span>
-            <h2 class="pg_text pg_text-1 color-main-secondary" data-animation-name="slideIn" data-animation-duration="2000" data-animation-direction="Left"> Seguici su facebook</h2>
-            <h3 class="pg_text pg_text-body-alt-color pg_text-2" data-animation-name="customAnimationIn" data-animation-duration="1750" data-animation-delay="500">
-                <a href="https://www.facebook.com/gallogaragebike" class="pg_active-none pg_border-none pg_btn pg_button-link pg_button-style pg_hover-none pg_none pg_text-active-white pg_text-hover-white pg_btn-1 color-main-secondary" target="_blank">@gallogaragebike</a>
-            </h3>
-
-        </div>
-    </section>
-    <section class="pg_align-center pg_clearfix pg_palette-2-base pg_section-12" id="contactus" > <!-- carousel_00d8 --> 
-		<h1 style="padding-top: 40px; margin-top: -40px;" ></h1>
-        <div class="pg_clearfix pg_sheet pg_valign-middle pg_sheet-1">
-			<br>
-			<h2 class="pg_text pg_text-1 color-main-secondary"> Prenotazioni</h2>
-            <div class="pg_container-style pg_group pg_white pg_group-1" data-animation-name="customAnimationIn" data-animation-duration="1750" data-animation-delay="0">
-				
-                <div class="pg_container-layout pg_valign-middle pg_container-layout-1" style="padding: 0px;" >
-				<!-- wrapper con scrollbar verticale forzata -->
-					<!-- <div class="calendar-wrapper" aria-label="Calendario prenotazioni"> -->
-						<!-- <iframe  -->
-							<!-- class="calendar-iframe" -->
-						  <!-- src="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2d3GfaLxXwTZKGniCD_ZOrSBNetGJlnMG1n20k7sw479Gz0xpBTAktecmU3Hd_9k6OKP_db-BF"  -->
-						  <!-- style="border: 0" 					   -->
-						  <!-- frameborder="0"  -->
-						  <!-- scrolling="no"> -->
-						<!-- </iframe> -->
-					<!-- </div> -->
-					
-			
-					<div 
-					  class="calendly-inline-widget"
-					  data-url="https://calendly.com/gallogaragebike/30min"
-					  style="min-width: 320px; height: 1000px;">
-					</div>
-					
-                    <!-- <h2 class="pg_align-center pg_text pg_text-1">Contattaci</h2> -->
-                    <!-- <div class="pg_expanded-width-sm pg_expanded-width-xs pg_form pg_form-1"> -->
-                        <!-- <form action="//publish.gallogaragebike.com/Form/Process" method="POST" class="pg_clearfix pg_form-spacing-13 pg_form-vertical pg_inner-form" style="padding: 0;" source="email" name="form"> -->
-                            <!-- <input type="hidden" id="siteId" name="siteId" value="2646264" wfd-invisible="true"> -->
-                            <!-- <input type="hidden" id="pageId" name="pageId" value="2646275" wfd-invisible="true"> -->
-                            <!-- <div class="pg_form-email pg_form-group pg_form-partition-factor-2"> -->
-                                <!-- <label for="email-f18c" class="pg_label">E-mail</label> -->
-                                <!-- <input type="email" placeholder="nome@mail.it" id="email-f18c" name="email" class="pg_grey-5 pg_input pg_input-rectangle pg_input-1" required=""> -->
-                            <!-- </div> -->
-                            <!-- <div class="pg_form-group pg_form-name pg_form-partition-factor-2"> -->
-                                <!-- <label for="name-f18c" class="pg_label">Nome</label> -->
-                                <!-- <input type="text" placeholder="Nome e Cognome / Azienda" id="name-f18c" name="name" class="pg_grey-5 pg_input pg_input-rectangle pg_input-2" required=""> -->
-                            <!-- </div> -->
-                            <!-- <div class="pg_form-group pg_form-partition-factor-2 pg_form-phone pg_form-group-3"> -->
-                                <!-- <label for="phone-cbff" class="pg_label" wfd-invisible="true">Telefono</label> -->
-                                <!-- <input type="tel" pattern="\+?\d{0,2}[\s\(\-]?([0-9]{3})[\s\)\-]?([\s\-]?)([0-9]{3})[\s\-]?([0-9]{2})[\s\-]?([0-9]{2})" placeholder="Nr telefono (es. +39 155552675)" id="phone-cbff" name="phone" class="pg_grey-5 pg_input pg_input-rectangle pg_input-3" required=""> -->
-                            <!-- </div> -->
-                            <!-- <div class="pg_form-date pg_form-group pg_form-partition-factor-2 pg_form-group-4"> -->
-                                <!-- <label for="date-33f9" class="pg_label">Data</label> -->
-                                <!-- <input type="date" placeholder="" id="date-33f9" name="date" class="pg_grey-5 pg_input pg_input-rectangle pg_input-4" required=""> -->
-                            <!-- </div> -->
-                            <!-- <div class="pg_form-group pg_form-message pg_form-group-5"> -->
-                                <!-- <label for="message-1015" class="pg_label">Messaggio</label> -->
-                                <!-- <textarea placeholder="Messaggio" rows="4" cols="50" id="message-1015" name="message-1" class="pg_grey-5 pg_input pg_input-rectangle pg_input-5" required=""></textarea> -->
-                            <!-- </div> -->
-                            <!-- <div class="pg_align-left pg_form-group pg_form-submit"> -->
-                                <!-- <a href="#" class="pg_black pg_btn pg_btn-submit pg_button-style pg_btn-1">Invia</a> -->
-                                <!-- <input type="submit" value="submit" class="pg_form-control-hidden" wfd-invisible="true"> -->
-                            <!-- </div> -->
-                            <!-- <div class="pg_form-send-message pg_form-send-success" wfd-invisible="true"> Thank you! Your message has been sent. </div> -->
-                            <!-- <div class="pg_form-send-error pg_form-send-message" wfd-invisible="true"> Unable to send your message. Please fix errors then try again. </div> -->
-                            <!-- <input type="hidden" value="" name="recaptchaResponse" wfd-invisible="true"> -->
-                        <!-- </form> -->
-                    <!-- </div> -->
+	
+    <!-- Sezione Chi siamo -->
+    <section class="about-section" id="scope">
+        <div class="container">
+            <h2 class="font-title color-main-primary section-title">Chi siamo</h2>
+            <div class="about-grid">
+                <div class="about-image-wrapper chisiamo-img">
+                    <img src="images/Chi_siamo.jpg" alt="Officina Gallo Garage Bike Cesena" class="about-image">
+                </div>
+                <div class="about-text-wrapper">
+                    <p class="about-text">
+                        Siamo un'officina indipendente di biciclette a Cesena.<br>
+                        Ci occupiamo di <b>riparazione, manutenzione e messa a punto</b> di CityBike, MTB, bici da corsa ed eBike.<br>
+                        Lavoriamo su appuntamento, partendo sempre da una diagnosi chiara: cosa va sistemato, cosa può aspettare e cosa non conviene fare.<br>
+                        Qui non vendiamo soluzioni standard, ma interventi necessari per rimettere la bici in strada in modo sicuro e affidabile.
+                    </p>
+                    <div class="map-wrapper">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5724.497546524447!2d12.269012075685584!3d44.16073181945843!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132cbac4a956c55b%3A0x3e3ad495f8ce4aed!2sGallo%20garage%20bike!5e0!3m2!1sit!2sit!4v1771577408660!5m2!1sit!2sit" 
+                            title="Posizione Gallo Garage Bike su Google Maps"
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Social Instagram -->
+    <section class="social-banner-section" id="instagram">
+        <div class="container">
+            <span class="social-icon-wrapper">
+                <i class="fa fa-instagram" aria-hidden="true"></i>
+            </span>
+            <h2 class="social-banner-title">Seguici su instagram</h2>
+            <div>
+                <a href="https://www.instagram.com/gallogaragebike" class="social-banner-link" target="_blank" rel="noopener noreferrer">@gallogaragebike</a>
+            </div>
+        </div>
+    </section>
 
+    <!-- Sezione Orari della settimana -->
+    <section class="hours-section" id="aboutus">
+        <div class="container">
+            <h2 class="hours-title">Orari della settimana</h2>
+            <div class="calendar-img-container">
+                <img 
+                    src="images/calendar.jpg" 
+                    alt="Orari di apertura settimanali Gallo Garage Bike: lunedì 8:30-12:00 e 14:30-18:30, martedì 8:30-12:00 (pomeriggio chiuso), mercoledì (mattina chiuso) e 14:30-18:30, giovedì e venerdì 8:30-12:00 e 14:30-18:30, sabato 9:30-13:30, domenica chiuso." 
+                    class="calendar-img">
+            </div>
+        </div>
+    </section>
 
-    <footer class="pg_align-center pg_clearfix pg_footer pg_grey-80 pg_footer footer-clean" id="sec-44c2">
-        <div class="pg_clearfix pg_sheet pg_sheet-1 footer" id="footer">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-sm-8 col-md-6 item">
-                        <h3 class="footer">Contatti</h3>
-						<ul class="footer">
-							<li><i class="fa fa-phone"></i><a style="" href="tel:+390547486328">0547 486328</a><p style="margin:0px; padding-left: 5px; padding-right:5px;">/</p><a href="tel:+393493022261">349 302 2261</a></li>
-							<li><i class="fa fa-envelope"></i><a href="mailto:gallogaragebike@gmail.com" target="_blank">gallogaragebike@gmail.com</a></li>
-							<li><i class="fa fa-map-marker"></i><a href="https://maps.app.goo.gl/QpVQyi5VoFSD9pFn7" target="_blank">Via Cervese, 2361 - 47521 Cesena (FC)</a></li>
-						</ul>
-                    </div>
-                    <div class="col-lg-6 item social footer">
-                        <p class="copyright">
-                            ©
-                            <script>document.write(new Date().getFullYear())</script> Riparazioni, manutenzione e preparazione gare
-                        </p>
-                    </div>
+    <!-- Social Facebook -->
+    <section class="social-banner-section" id="facebook">
+        <div class="container">
+            <span class="social-icon-wrapper">
+                <i class="fa fa-facebook-square" aria-hidden="true"></i>
+            </span>
+            <h2 class="social-banner-title">Seguici su facebook</h2>
+            <div>
+                <a href="https://www.facebook.com/gallogaragebike" class="social-banner-link" target="_blank" rel="noopener noreferrer">@gallogaragebike</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sezione Prenotazioni (Calendly) -->
+    <section class="booking-section" id="contactus">
+        <div class="container">
+            <h2 class="booking-title">Prenotazioni</h2>
+            <div class="booking-widget-wrapper">
+                <div 
+                    class="calendly-inline-widget" 
+                    data-url="https://calendly.com/gallogaragebike/30min">
                 </div>
             </div>
         </div>
-		<div class="footer-end">
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer" id="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3 class="footer-heading">Contatti</h3>
+                    <ul class="footer-contact-list">
+                        <li>
+                            <i class="fa fa-phone" aria-hidden="true"></i>
+                            <a href="tel:+390547486328">0547 486328</a>
+                            <span>/</span>
+                            <a href="tel:+393493022261">349 302 2261</a>
+                        </li>
+                        <li>
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                            <a href="mailto:gallogaragebike@gmail.com">gallogaragebike@gmail.com</a>
+                        </li>
+                        <li>
+                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                            <a href="https://maps.app.goo.gl/QpVQyi5VoFSD9pFn7" target="_blank" rel="noopener noreferrer">Via Cervese, 2361 - 47521 Cesena (FC)</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-col footer-brand-col">
+                    <p class="footer-tagline">Riparazioni, manutenzione e preparazione gare</p>
+                    <p class="footer-copyright">
+                        © <script>document.write(new Date().getFullYear())</script> Gallo Garage Bike. Tutti i diritti riservati.
+                    </p>
+                </div>
+            </div>
         </div>
+        <div class="footer-end"></div>
     </footer>
+
+    <!-- Script Scroll Navbar -->
+    <script>
+        (function() {
+            var navbar = document.getElementById("pg_navbar");
+            function checkScroll() {
+                if (window.scrollY > 80 || document.documentElement.scrollTop > 80) {
+                    navbar.classList.remove("navbar_scroll_Top");
+                    navbar.classList.add("navbar_scroll_NoTop");
+                } else {
+                    navbar.classList.remove("navbar_scroll_NoTop");
+                    navbar.classList.add("navbar_scroll_Top");
+                }
+            }
+            window.addEventListener("scroll", checkScroll, { passive: true });
+            checkScroll();
+        })();
+    </script>
 </body>
 </html>
